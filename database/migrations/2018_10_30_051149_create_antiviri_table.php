@@ -15,6 +15,8 @@ class CreateAntiviriTable extends Migration
     {
         Schema::create('antiviri', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre', 25);
+            $table->string('version', 50);
             $table->timestamps();
         });
     }

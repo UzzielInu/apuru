@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OperativeSistem extends Model
+class Ticket extends Model
 {
     //
 }

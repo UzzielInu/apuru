@@ -15,6 +15,8 @@ class CreateModelDevicesTable extends Migration
     {
         Schema::create('model_devices', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('marca', 20);
+            $table->string('modelo', 25);
             $table->timestamps();
         });
     }

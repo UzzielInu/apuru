@@ -15,6 +15,23 @@ class CreateDevicesTable extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('noSerie', 25)->unique();
+            $table->string('noInventario', 10);
+            $table->string('dirIp', 16);
+            $table->string('dirMac', 16);
+            $table->string('observaciones', 70);
+            $table->unsignedInteger('operative_system_id')->unique();
+            $table->foreign('operative_system_id')->references('id')->on('operative_systems');
+            $table->unsignedInteger('type_id')->unique();
+            $table->foreign('type_id')->references('id')->on('types');
+            $table->unsignedInteger('antivirus_id')->unique();
+            $table->foreign('antivirus_id')->references('id')->on('antiviri');
+            $table->unsignedInteger('model_device_id')->unique();
+            $table->foreign('model_device_id')->references('id')->on('model_devices');
+            $table->unsignedInteger('house_holder_id')->unique();
+            $table->foreign('house_holder_id')->references('id')->on('house_holders');
+            $table->unsignedInteger('location_id')->unique();
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
         });
     }

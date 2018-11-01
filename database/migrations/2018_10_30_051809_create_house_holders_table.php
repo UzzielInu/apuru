@@ -15,6 +15,13 @@ class CreateHouseHoldersTable extends Migration
     {
         Schema::create('house_holders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre', 25);
+            $table->string('paterno', 20);
+            $table->string('materno', 20);
+            $table->string('extension', 4);
+            $table->string('correo', 35);
+            $table->unsignedInteger('location_id')->unique();
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
         });
     }

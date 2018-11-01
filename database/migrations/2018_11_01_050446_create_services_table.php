@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOperativeSistemsTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateOperativeSistemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('operative_sistems', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre', 50);
+            $table->string('descripcion', 70);
+            $table->enum('tipo', ['SERVICIO','SOPORTE']);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateOperativeSistemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('operative_sistems');
+        Schema::dropIfExists('services');
     }
 }
