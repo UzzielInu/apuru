@@ -23,22 +23,6 @@ class LocationSeeder extends Seeder
       $location= new Location;
       $location->campus = 'I';
       $location->edificio = 'A';
-      $location->departamento = 'Secretaría Técnica';
-      $location->nivel = 'Planta baja';
-      $location->areaTrabajo = 'Cubículo';
-      $location->save();
-      //Campus I Edificio A Planta baja
-      $location= new Location;
-      $location->campus = 'I';
-      $location->edificio = 'A';
-      $location->departamento = 'Secretaría Técnica';
-      $location->nivel = 'Planta baja';
-      $location->areaTrabajo = 'Cubículo';
-      $location->save();
-      //Campus I Edificio A Planta baja
-      $location= new Location;
-      $location->campus = 'I';
-      $location->edificio = 'A';
       $location->departamento = 'Red de Biología y Conservacíon de Vertebrados';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
@@ -56,14 +40,6 @@ class LocationSeeder extends Seeder
       $location->campus = 'I';
       $location->edificio = 'A';
       $location->departamento = 'Red de Ecología Funcional';
-      $location->nivel = 'Planta baja';
-      $location->areaTrabajo = 'Cubículo';
-      $location->save();
-      //Campus I Edificio A Planta baja
-      $location= new Location;
-      $location->campus = 'I';
-      $location->edificio = 'A';
-      $location->departamento = 'Secretaría Técnica';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
       $location->save();

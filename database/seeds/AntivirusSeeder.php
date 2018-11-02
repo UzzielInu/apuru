@@ -25,7 +25,7 @@ class AntivirusSeeder extends Seeder
       //Avast
       $antivirus= new Antivirus;
       $antivirus->nombre = 'Avast';
-      $antivirus->version = 'pro';
+      $antivirus->version = 'Pro';
       $antivirus->save();
       //Avast
       $antivirus= new Antivirus;

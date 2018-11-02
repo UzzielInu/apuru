@@ -25,7 +25,7 @@ class ModelDeviceSeeder extends Seeder
       //Dell Inspirion
       $model= new ModelDevice;
       $model->marca = 'Dell';
-      $model->modelo = 'inspiron';
+      $model->modelo = 'Inspiron';
       $model->save();
       //Dell Presicion
       $model= new ModelDevice;
