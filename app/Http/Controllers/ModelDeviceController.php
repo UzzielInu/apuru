@@ -37,7 +37,10 @@ class ModelDeviceController extends Controller
      */
     public function create()
     {
-        //
+        $modeldevice = new ModelDevice;
+        return view('modeldevice.create',compact('modeldevice'));
+
+
     }
 
     /**
@@ -48,7 +51,7 @@ class ModelDeviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $modeldevice = ModelDevice::create($request->all());
     }
 
     /**

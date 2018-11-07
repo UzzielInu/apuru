@@ -36,7 +36,8 @@ class AntivirusController extends Controller
      */
     public function create()
     {
-        //
+      $antivirus = new Antivirus;
+        return view('antivirus.create',compact('antivirus'));
     }
 
     /**
@@ -47,7 +48,7 @@ class AntivirusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $antivirus = Antivirus::create($request->all());
     }
 
     /**

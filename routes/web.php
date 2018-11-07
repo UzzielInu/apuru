@@ -22,8 +22,11 @@ Route::get('/getmodeldevice','ModelDeviceController@getdata')->name('modeldevice
 Route::resource('/modeldevice','ModelDeviceController');
 Route::get('/gettype','TypeController@getdata')->name('type.getdata');
 Route::resource('/type','TypeController');
-Route::resource('/service','ServiceController');
 Route::get('/getservice','ServiceController@getdata')->name('service.getdata');
+Route::resource('/service','ServiceController');
+Route::get('/getlocation','LocationController@getdata')->name('location.getdata');
+Route::resource('/location','LocationController');
+
 Route::resource('/devices', 'DevicesController');
 Route::get('/home', 'HomeController@index')->name('home');
 

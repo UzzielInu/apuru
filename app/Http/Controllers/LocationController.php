@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Location;
 use Illuminate\Http\Request;
-
+use DataTables;
 class LocationController extends Controller
 {
     /**
@@ -14,7 +14,16 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        return view('location.index');
+    }
+
+    public function getdata(){
+      $location =  Location::select('campus','edificio','departamento','nivel','areaTrabajo','created_at');
+      return DataTables::of($location)
+      ->addColumn('actions',function($location){
+                      return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+      })
+      ->rawColumns(['actions'])->toJson();
     }
 
     /**
@@ -24,7 +33,8 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+      $location = new Location;
+      return view('location.create', compact('location'));
     }
 
     /**
@@ -35,7 +45,7 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $location = Location::create($request->all());
     }
 
     /**

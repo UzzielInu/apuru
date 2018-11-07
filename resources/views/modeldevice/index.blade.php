@@ -10,7 +10,7 @@
     <div class="card-header">
       <h3 class="float-left">Modelo de dispositivos</h3>
 
-      <a href="{{url('')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Modelo Dispositivo</a>
+      <a href="{{url('modeldevice/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Modelo Dispositivo</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}

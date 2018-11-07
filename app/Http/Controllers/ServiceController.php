@@ -20,7 +20,7 @@ class ServiceController extends Controller
 
     public function getdata()
     {
-      $service = Service::select('nombre','descripcion','created_at');
+      $service = Service::select('nombre','descripcion','tipo','created_at');
       //dd($service);
       return Datatables::of($service)
       ->addColumn('actions', function($service) {
@@ -35,7 +35,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+      $service = new Service;
+      return view('service.create', compact('service'));
     }
 
     /**
@@ -46,7 +47,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $service = Service::create($request->all());
     }
 
     /**

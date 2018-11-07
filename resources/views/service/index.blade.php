@@ -10,7 +10,7 @@
     <div class="card-header">
       <h3 class="float-left">Servicios y Soportes</h3>
 
-      <a href="{{url('os/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Servicio/Soporte</a>
+      <a href="{{url('service/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Servicio/Soporte</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
@@ -19,6 +19,7 @@
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">descripcion</th>
+            <th scope="col">Tipo</th>
             <th scope="col">Fecha creación</th>
             <th scope="col">Acciones</th>
           </tr>
@@ -44,6 +45,7 @@ $(function() {
     columns: [
       { data: 'nombre', name: 'nombre' },
       { data: 'descripcion', name: 'descripcion' },
+      { data: 'tipo'       , name: 'tipo'        },
       { data: 'created_at', name: 'created_at' },
       { data: 'actions', name: 'actions' },
     ]
