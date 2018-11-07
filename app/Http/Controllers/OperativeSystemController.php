@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\OperativeSistem;
+use App\OperativeSystem;
 use Illuminate\Http\Request;
+use DataTables;
 
 class OperativeSystemController extends Controller
 {
@@ -20,7 +21,13 @@ class OperativeSystemController extends Controller
 
     public function getdata()
     {
-      return('hola');
+      $os = OperativeSystem::select('nombre','version','created_at');
+      // dd($os);
+      return Datatables::of($os)
+      ->addColumn('actions', function($os) {
+                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">HOLA</a>';
+      })
+      ->rawColumns(['actions'])->toJson();
     }
 
     /**
@@ -30,7 +37,8 @@ class OperativeSystemController extends Controller
      */
     public function create()
     {
-        //
+      $os = new OperativeSystem;
+      return view('os.create', compact('os'));
     }
 
     /**
@@ -41,7 +49,7 @@ class OperativeSystemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $os = OperativeSystem::create($request->all());
     }
 
     /**
