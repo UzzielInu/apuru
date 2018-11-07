@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\OperativeSistem;
 use Illuminate\Http\Request;
 
-class OperativeSistemController extends Controller
+class OperativeSystemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,13 @@ class OperativeSistemController extends Controller
      */
     public function index()
     {
-        //
+      return view('os.index');
+    }
+
+
+    public function getdata()
+    {
+      return('hola');
     }
 
     /**

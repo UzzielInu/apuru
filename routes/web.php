@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/getos', 'OperativeSystemController@getdata')->name('os.getdata');
+Route::resource('/os', 'OperativeSystemController');
 Route::resource('/devices', 'DevicesController');
 Route::get('/home', 'HomeController@index')->name('home');
 
