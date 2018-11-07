@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Antivirus;
 use Illuminate\Http\Request;
+use DataTables;
 
 class AntivirusController extends Controller
 {
@@ -14,7 +15,18 @@ class AntivirusController extends Controller
      */
     public function index()
     {
-        //
+        return view('antivirus.index');
+    }
+
+    public function getdata()
+    {
+      $antivirus = Antivirus::select('nombre','version','created_at');
+      // dd($antivirus);
+      return Datatables::of($antivirus)
+      ->addColumn('actions', function($antivirus) {
+                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+      })
+      ->rawColumns(['actions'])->toJson();
     }
 
     /**

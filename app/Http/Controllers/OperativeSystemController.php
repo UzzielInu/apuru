@@ -22,10 +22,10 @@ class OperativeSystemController extends Controller
     public function getdata()
     {
       $os = OperativeSystem::select('nombre','version','created_at');
-      // dd($os);
+      //dd($os);
       return Datatables::of($os)
       ->addColumn('actions', function($os) {
-                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">HOLA</a>';
+                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
       })
       ->rawColumns(['actions'])->toJson();
     }

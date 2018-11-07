@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Type;
 use Illuminate\Http\Request;
+use DataTables;
 
 class TypeController extends Controller
 {
@@ -14,7 +15,17 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('type.index');
+    }
+    public function getdata()
+    {
+      $type = Type::select('nombre','created_at');
+      //dd($type);
+      return Datatables::of($type)
+      ->addColumn('actions', function($type) {
+                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+      })
+      ->rawColumns(['actions'])->toJson();
     }
 
     /**

@@ -13,7 +13,7 @@ class ServiceSeeder extends Seeder
     {
       //Soporte conectividad (1)
       $service= new Service;
-      $service->nombre = 'Problemas de conectivda';
+      $service->nombre = 'Problemas de conectivdad';
       $service->descripcion = 'Fallas relacionadas con la red ';
       $service->tipo = '1';
       $service->save();
@@ -28,6 +28,6 @@ class ServiceSeeder extends Seeder
       $service->nombre = 'Fallas de software';
       $service->descripcion = 'Fallas relacionadas con los programas de los equipos ';
       $service->tipo = '1';
-      $service->save();  
+      $service->save();
     }
 }

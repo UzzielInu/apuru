@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use Illuminate\Http\Request;
+use DataTables;
 
 class ServiceController extends Controller
 {
@@ -14,9 +15,19 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('service.index');
     }
 
+    public function getdata()
+    {
+      $service = Service::select('nombre','descripcion','created_at');
+      //dd($service);
+      return Datatables::of($service)
+      ->addColumn('actions', function($service) {
+                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+      })
+      ->rawColumns(['actions'])->toJson();
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ModelDevice;
 use Illuminate\Http\Request;
+use DataTables;
 
 class ModelDeviceController extends Controller
 {
@@ -14,8 +15,20 @@ class ModelDeviceController extends Controller
      */
     public function index()
     {
-        //
+        return view('modeldevice.index');
     }
+
+    public function getdata()
+    {
+      $modelDevice = ModelDevice::select('marca','modelo','created_at');
+      //dd($modelDevice);
+      return Datatables::of($modelDevice)
+      ->addColumn('actions', function($modelDevice) {
+                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+      })
+      ->rawColumns(['actions'])->toJson();
+    }
+
 
     /**
      * Show the form for creating a new resource.

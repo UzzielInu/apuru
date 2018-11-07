@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Device extends Model
 {
+  protected $table = 'model_devices';
+
   public function os()
     {
       return $this->belongsTo('App\OperativeSystem', 'operative_system_id', 'id');
