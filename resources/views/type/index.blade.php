@@ -9,8 +9,7 @@
   <div class="card text-center">
     <div class="card-header">
       <h3 class="float-left">Tipo de Hardware</h3>
-
-      <a href="{{url('')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Tipo de Hardware</a>
+      <a href="{{url('type/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Tipo de Hardware</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}

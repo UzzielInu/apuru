@@ -50,6 +50,7 @@ class OperativeSystemController extends Controller
     public function store(Request $request)
     {
       $os = OperativeSystem::create($request->all());
+      return redirect(url('/os'));
     }
 
     /**

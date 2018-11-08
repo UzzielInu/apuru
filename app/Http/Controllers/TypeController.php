@@ -35,7 +35,8 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+      $type = new Type;
+      return view('type.create', compact('type'));
     }
 
     /**
@@ -46,7 +47,8 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $type = type::create($request->all());
+      return redirect(url('/type'));
     }
 
     /**
