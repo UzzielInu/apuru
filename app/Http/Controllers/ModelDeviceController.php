@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\ModelDevice;
 use Illuminate\Http\Request;
+use Session;
+use Validator;
 use DataTables;
 
 class ModelDeviceController extends Controller
@@ -20,11 +22,25 @@ class ModelDeviceController extends Controller
 
     public function getdata()
     {
-      $modelDevice = ModelDevice::select('marca','modelo','created_at');
-      //dd($modelDevice);
-      return Datatables::of($modelDevice)
-      ->addColumn('actions', function($modelDevice) {
-                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+      $modeldevice = ModelDevice::select('id','marca','modelo','created_at');
+      //dd($modeldevice);
+      return Datatables::of($modeldevice)
+      ->addColumn('actions', function($modeldevice) {
+        return '
+          <div class="btn-group dropleft">
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Acciones
+            </button>
+            <div class="dropdown-menu">
+                <a href="'.route('modeldevice.edit', $modeldevice->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
+              <div class="dropdown-divider"></div>
+              <form action="'.action('ModelDeviceController@destroy', ['id' => $modeldevice->id]).'" method="POST">
+                <input name="_token" type="hidden" value="'.csrf_token().'">
+                <input name="_method" type="hidden" value="DELETE">
+                <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
+              </form>
+            </div>
+          </div>';
       })
       ->rawColumns(['actions'])->toJson();
     }
@@ -72,9 +88,13 @@ class ModelDeviceController extends Controller
      * @param  \App\ModelDevice  $modelDevice
      * @return \Illuminate\Http\Response
      */
-    public function edit(ModelDevice $modelDevice)
+    public function edit($id)
     {
-        //
+      $modeldevice = ModelDevice::find($id);
+      if($modeldevice == NULL){
+        return redirect('modeldevice')->with('errors','El item no existe');
+      }
+      return view('modeldevice.edit', compact('modeldevice'));
     }
 
     /**
@@ -84,9 +104,24 @@ class ModelDeviceController extends Controller
      * @param  \App\ModelDevice  $modelDevice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ModelDevice $modelDevice)
+    public function update(Request $request, $id)
     {
-        //
+      // dd($request->all());
+      $validator = Validator::make($request->all(),
+      [
+        '_token' => 'required',
+        'marca'  => 'required',
+        'modelo'  => 'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+
+      $modeldevice = ModelDevice::findOrFail($id);
+      $modeldevice->fill($request->all())->save();
+      return redirect('/modeldevice')->with('message', 'Antivirus Editado!');
     }
 
     /**
@@ -95,8 +130,14 @@ class ModelDeviceController extends Controller
      * @param  \App\ModelDevice  $modelDevice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ModelDevice $modelDevice)
+    public function destroy($id)
     {
-        //
+      $modeldevice = ModelDevice::find($id);
+      try {
+        $modeldevice->delete();
+      } catch (\Exception $e) {
+        return redirect('/modeldevice')->with('errors', 'Ha ocurrido un problema');
+      }
+      return redirect('/modeldevice')->with('message', 'Antivirus Eliminado');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\OperativeSystem;
 use Illuminate\Http\Request;
-USE Session;
+use Session;
 use Validator;
 use DataTables;
 

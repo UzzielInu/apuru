@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Antivirus;
 use Illuminate\Http\Request;
+use Session;
+use Validator;
 use DataTables;
 
 class AntivirusController extends Controller
@@ -20,11 +22,25 @@ class AntivirusController extends Controller
 
     public function getdata()
     {
-      $antivirus = Antivirus::select('nombre','version','created_at');
-      // dd($antivirus);
+      $antivirus = Antivirus::select('id','nombre','version','created_at');
+      //dd($antivirus);
       return Datatables::of($antivirus)
       ->addColumn('actions', function($antivirus) {
-                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+        return '
+          <div class="btn-group dropleft">
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Acciones
+            </button>
+            <div class="dropdown-menu">
+                <a href="'.route('antivirus.edit', $antivirus->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
+              <div class="dropdown-divider"></div>
+              <form action="'.action('AntivirusController@destroy', ['id' => $antivirus->id]).'" method="POST">
+                <input name="_token" type="hidden" value="'.csrf_token().'">
+                <input name="_method" type="hidden" value="DELETE">
+                <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
+              </form>
+            </div>
+          </div>';
       })
       ->rawColumns(['actions'])->toJson();
     }
@@ -69,9 +85,13 @@ class AntivirusController extends Controller
      * @param  \App\Antivirus  $antivirus
      * @return \Illuminate\Http\Response
      */
-    public function edit(Antivirus $antivirus)
+    public function edit($id)
     {
-        //
+      $antivirus = Antivirus::find($id);
+      if($antivirus == NULL){
+        return redirect('antivirus')->with('errors','El item no existe');
+      }
+      return view('antivirus.edit', compact('antivirus'));
     }
 
     /**
@@ -81,9 +101,23 @@ class AntivirusController extends Controller
      * @param  \App\Antivirus  $antivirus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Antivirus $antivirus)
+    public function update(Request $request,$id)
     {
-        //
+      $validator = Validator::make($request->all(),
+      [
+        '_token' => 'required',
+        'nombre'  => 'required',
+        'version'   => 'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+
+      $antivirus = Antivirus::findOrFail($id);
+      $antivirus->fill($request->all())->save();
+      return redirect('/antivirus')->with('message', 'Sistema Operativo Editado!');
     }
 
     /**
@@ -92,8 +126,14 @@ class AntivirusController extends Controller
      * @param  \App\Antivirus  $antivirus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Antivirus $antivirus)
+    public function destroy($id)
     {
-        //
+      $antivirus = Antivirus::find($id);
+      try {
+        $antivirus->delete();
+      } catch (\Exception $e) {
+        return redirect('/antivirus')->with('errors', 'Ha ocurrido un problema');
+      }
+      return redirect('/antivirus')->with('message', 'Sistema Operativo Eliminado');
     }
 }

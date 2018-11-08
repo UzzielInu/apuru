@@ -15,19 +15,19 @@ class ServiceSeeder extends Seeder
       $service= new Service;
       $service->nombre = 'Problemas de conectivdad';
       $service->descripcion = 'Fallas relacionadas con la red ';
-      $service->tipo = '1';
+      $service->tipo = '2';
       $service->save();
       //Soporte fallas hardware(1)
       $service= new Service;
       $service->nombre = 'Fallas de hardware';
       $service->descripcion = 'Fallas relacionadas con componentes de los equipos';
-      $service->tipo = '1';
+      $service->tipo = '2';
       $service->save();
       //Soporte fallas software (1)
       $service= new Service;
       $service->nombre = 'Fallas de software';
       $service->descripcion = 'Fallas relacionadas con los programas de los equipos ';
-      $service->tipo = '1';
+      $service->tipo = '2';
       $service->save();
     }
 }

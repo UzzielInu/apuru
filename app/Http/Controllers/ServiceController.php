@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use Illuminate\Http\Request;
+use Session;
+use Validator;
 use DataTables;
 
 class ServiceController extends Controller
@@ -20,11 +22,25 @@ class ServiceController extends Controller
 
     public function getdata()
     {
-      $service = Service::select('nombre','descripcion','tipo','created_at');
+      $service = Service::select('id','nombre','descripcion','tipo','created_at');
       //dd($service);
       return Datatables::of($service)
       ->addColumn('actions', function($service) {
-                    return '<a href="www.google.com" target="_blank" class="btn btn-dark">Acciones</a>';
+        return '
+          <div class="btn-group dropleft">
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Acciones
+            </button>
+            <div class="dropdown-menu">
+                <a href="'.route('service.edit', $service->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
+              <div class="dropdown-divider"></div>
+              <form action="'.action('ServiceController@destroy', ['id' => $service->id]).'" method="POST">
+                <input name="_token" type="hidden" value="'.csrf_token().'">
+                <input name="_method" type="hidden" value="DELETE">
+                <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
+              </form>
+            </div>
+          </div>';
       })
       ->rawColumns(['actions'])->toJson();
     }
@@ -68,9 +84,13 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+      $service = Service::find($id);
+      if($service == NULL){
+        return redirect('service')->with('errors','El item no existe');
+      }
+      return view('service.edit', compact('service'));
     }
 
     /**
@@ -80,9 +100,25 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+      // dd($request->all());
+      $validator = Validator::make($request->all(),
+      [
+        '_token' => 'required',
+        'nombre'  => 'required',
+        'descripcion'   => 'required',
+        'tipo'   => 'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+
+      $service = Service::findOrFail($id);
+      $service->fill($request->all())->save();
+      return redirect('/service')->with('message', 'Servicio/Soporte Editado!');
     }
 
     /**
@@ -91,8 +127,14 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+      $service = Service::find($id);
+      try {
+        $service->delete();
+      } catch (\Exception $e) {
+        return redirect('/service')->with('errors', 'Ha ocurrido un problema');
+      }
+      return redirect('/service')->with('message', 'Servicio/Soporte Eliminado');
     }
 }
