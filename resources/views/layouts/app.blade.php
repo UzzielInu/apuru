@@ -69,19 +69,37 @@
 
     <main class="py-4">
       @if(Session::has('message'))
-        <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+        {{-- <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
           {{ Session::get('message') }}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </div> --}}
+        <script type="text/javascript">
+        swal({
+          position: 'center',
+          type: 'success',
+          title: '{{ Session::get('message') }}',
+          showConfirmButton: false,
+          timer: 1500
+          })
+        </script>
       @elseif(Session::has('errors'))
-        <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+        {{-- <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
           {{ Session::get('errors') }}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </div> --}}
+        <script type="text/javascript">
+        swal({
+          position: 'center',
+          type: 'error',
+          title: '{{ Session::get('errors') }}',
+          showConfirmButton: false,
+          timer: 1500
+          })
+        </script>
       @endif
       @yield('content')
     </main>

@@ -101,6 +101,9 @@ class OperativeSystemController extends Controller
     public function edit($id)
     {
       $os = OperativeSystem::find($id);
+      if($os == NULL){
+        return redirect('os')->with('errors','El item no existe');
+      }
       return view('os.edit', compact('os'));
     }
 
