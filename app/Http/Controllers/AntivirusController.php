@@ -49,6 +49,7 @@ class AntivirusController extends Controller
     public function store(Request $request)
     {
         $antivirus = Antivirus::create($request->all());
+        return redirect(url('/antivirus'));
     }
 
     /**

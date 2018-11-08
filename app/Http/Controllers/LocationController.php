@@ -46,6 +46,7 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $location = Location::create($request->all());
+        return redirect(url('/location'));
     }
 
     /**

@@ -78,7 +78,11 @@ class OperativeSystemController extends Controller
         return redirect()->back()->withErrors($validator->errors());
       }
       $os = OperativeSystem::create($request->all());
+<<<<<<< HEAD
       return redirect('/os')->with('message', 'Sistema Operativo Guardado');
+=======
+      return redirect(url('/os'));
+>>>>>>> c5a989f862b5d48b2ee512d19a017a9900cb61d9
     }
 
     /**

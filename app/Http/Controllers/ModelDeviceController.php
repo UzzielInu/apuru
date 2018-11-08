@@ -52,6 +52,7 @@ class ModelDeviceController extends Controller
     public function store(Request $request)
     {
         $modeldevice = ModelDevice::create($request->all());
+        return redirect(url('/modeldevice'));
     }
 
     /**
