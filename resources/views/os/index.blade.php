@@ -9,12 +9,11 @@
   <div class="card text-center">
     <div class="card-header">
       <h3 class="float-left">Sistemas Operativos</h3>
-
       <a href="{{url('os/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Sistema Operativo</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
-      <table id="table" name="table" class="table">
+      <table id="table" name="table" class="table table-hover">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nombre</th>
@@ -32,7 +31,6 @@
     </div>
   </div>
 </div>
-
 {{-- DATATABLES --}}
 <script>
 $(function() {

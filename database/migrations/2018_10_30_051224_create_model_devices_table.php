@@ -18,6 +18,7 @@ class CreateModelDevicesTable extends Migration
             $table->string('marca', 20);
             $table->string('modelo', 25);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

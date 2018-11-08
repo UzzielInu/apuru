@@ -18,6 +18,7 @@ class CreateOperativeSystemsTable extends Migration
             $table->string('nombre', 15);
             $table->string('version', 25);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

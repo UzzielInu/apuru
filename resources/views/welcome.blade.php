@@ -106,8 +106,8 @@
                     <div class="col-md-6 offset-md-4">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="remember">
-                          {{ __('Remember Me') }}
+                        <label class="form-check-label text-dark" for="remember">
+                          {{ __('Recordar Usuario') }}
                         </label>
                       </div>
                     </div>
@@ -119,7 +119,7 @@
                       </button>
 
                       <a class="btn btn-link" href="{{ route('password.request') }}">
-                          {{ __('Forgot Your Password?') }}
+                          {{ __('Olvidé mi contraseña') }}
                       </a>
                     </div>
                   </div>

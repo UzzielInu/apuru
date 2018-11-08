@@ -18,6 +18,7 @@ class CreateAntiviriTable extends Migration
             $table->string('nombre', 25);
             $table->string('version', 50);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

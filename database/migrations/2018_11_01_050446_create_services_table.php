@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('descripcion', 70);
             $table->enum('tipo', ['SERVICIO','SOPORTE']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

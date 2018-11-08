@@ -21,6 +21,7 @@ class CreateLocationsTable extends Migration
             $table->string('nivel', 20);
             $table->string('areaTrabajo', 25);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

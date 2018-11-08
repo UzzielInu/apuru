@@ -64,8 +64,24 @@
         </div>
       </div>
     </nav>
+
     <main class="py-4">
-        @yield('content')
+      @if(Session::has('message'))
+        <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+          {{ Session::get('message') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @elseif(Session::has('errors'))
+        <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+          {{ Session::get('errors') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+      @yield('content')
     </main>
   </div>
 </body>

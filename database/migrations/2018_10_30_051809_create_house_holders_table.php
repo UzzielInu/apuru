@@ -23,6 +23,7 @@ class CreateHouseHoldersTable extends Migration
             $table->unsignedInteger('location_id')->unique();
             $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
