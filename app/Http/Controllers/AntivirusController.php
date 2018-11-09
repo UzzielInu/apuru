@@ -64,8 +64,19 @@ class AntivirusController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+        [
+          '_token' => 'required',
+          'nombre'  => 'required',
+          'version'   => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+          return redirect()->back()->withErrors($validator->errors());
+        }
         $antivirus = Antivirus::create($request->all());
-        return redirect(url('/antivirus'));
+        return redirect('/antivirus')->with('message', 'Antivirus Guardado');
     }
 
     /**
@@ -117,7 +128,7 @@ class AntivirusController extends Controller
 
       $antivirus = Antivirus::findOrFail($id);
       $antivirus->fill($request->all())->save();
-      return redirect('/antivirus')->with('message', 'Sistema Operativo Editado!');
+      return redirect('/antivirus')->with('message', ' Antivirus Editado!');
     }
 
     /**
@@ -134,6 +145,6 @@ class AntivirusController extends Controller
       } catch (\Exception $e) {
         return redirect('/antivirus')->with('errors', 'Ha ocurrido un problema');
       }
-      return redirect('/antivirus')->with('message', 'Sistema Operativo Eliminado');
+      return redirect('/antivirus')->with('message', ' Antivirus Eliminado');
     }
 }

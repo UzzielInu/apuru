@@ -4,7 +4,7 @@
   <div class="card text-center">
     <div class="card-header">
       <h3 class="float-left">Registrar Antivirus Nuevo</h3>
-      <a href="{{ URL::previous() }}" role="button" name="button" class="btn btn-success col-md-2 float-right"><i class="fas fa-chevron-left fa-fw fa-lg"></i> Regresar</a>
+      <a href="{{ url('antivirus')}}" role="button" name="button" class="btn btn-success col-md-2 float-right"><i class="fas fa-chevron-left fa-fw fa-lg"></i> Regresar</a>
     </div>
     {!! Form::model($antivirus, ['action' => 'AntivirusController@store']) !!}
     <div class="card-body">

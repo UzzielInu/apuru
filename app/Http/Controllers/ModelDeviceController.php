@@ -67,9 +67,20 @@ class ModelDeviceController extends Controller
      */
     public function store(Request $request)
     {
-        $modeldevice = ModelDevice::create($request->all());
-        return redirect(url('/modeldevice'));
-    }
+      $validator = Validator::make($request->all(),
+      [
+        '_token' => 'required',
+        'marca'  => 'required',
+        'modelo'  => 'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+      $modeldevice = ModelDevice::create($request->all());
+      return redirect('/modeldevice')->with('message', 'Modelo de dispositvo Guardado!');
+      }
 
     /**
      * Display the specified resource.
@@ -121,7 +132,7 @@ class ModelDeviceController extends Controller
 
       $modeldevice = ModelDevice::findOrFail($id);
       $modeldevice->fill($request->all())->save();
-      return redirect('/modeldevice')->with('message', 'Antivirus Editado!');
+      return redirect('/modeldevice')->with('message', 'Modelo de dispositvo Editado!');
     }
 
     /**
@@ -138,6 +149,6 @@ class ModelDeviceController extends Controller
       } catch (\Exception $e) {
         return redirect('/modeldevice')->with('errors', 'Ha ocurrido un problema');
       }
-      return redirect('/modeldevice')->with('message', 'Antivirus Eliminado');
+      return redirect('/modeldevice')->with('message', 'Modelo de dispositvo Eliminado');
     }
 }

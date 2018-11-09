@@ -64,8 +64,19 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
+      $validator = Validator::make($request->all(),
+      [
+        '_token' => 'required',
+        'nombre'  => 'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
       $type = type::create($request->all());
-      return redirect(url('/type'));
+      return redirect('/type')->with('message', 'Tipo de hardware Guardado!');
+
     }
 
     /**
@@ -133,7 +144,7 @@ class TypeController extends Controller
       } catch (\Exception $e) {
         return redirect('/type')->with('errors', 'Ha ocurrido un problema');
       }
-      return redirect('/type')->with('message', 'Sistema Operativo Eliminado');
+      return redirect('/type')->with('message', 'Tipo de hardware Eliminado');
 
     }
 }

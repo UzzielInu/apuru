@@ -63,8 +63,21 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $service = Service::create($request->all());
-        return redirect(url('/service'));
+      $validator = Validator::make($request->all(),
+      [
+        '_token' => 'required',
+        'nombre'  => 'required',
+        'descripcion'   => 'required',
+        'tipo'   => 'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+
+      $service = Service::create($request->all());
+      return redirect('/service')->with('message', 'Servicio/Soporte Guardado!');
     }
 
     /**
