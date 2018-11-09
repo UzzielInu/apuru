@@ -23,5 +23,9 @@ class DatabaseSeeder extends Seeder
       $this->command->info('Antivirus have been created!');
       $this->call('ServiceSeeder');
       $this->command->info('Service have been created!');
+      $this->call('RoleTableSeeder');
+      $this->command->info('Role have been created!');
+      $this->call('UserTableSeeder');
+      $this->command->info('User have been created!');
     }
 }
