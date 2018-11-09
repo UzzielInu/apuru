@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 Route::get('/getos', 'OperativeSystemController@getdata')->name('os.getdata');
 Route::resource('/os', 'OperativeSystemController');
