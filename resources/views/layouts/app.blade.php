@@ -8,22 +8,23 @@
   <title>{{ config('app.name', 'INECOL-SYSTEM') }}</title>
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}"></script>
+  <script src="{{ asset('js/sb-admin.min.js') }}"></script>
+  <script src="{{ asset('jquery-easing/jquery.easing.min.js') }}"></script>
   <script src="{{ asset('icons/js/all.js') }}" defer></script>
   <script src="{{ asset('swal/dist/sweetalert2.all.min.js') }}"></script>
   <!-- Fonts -->
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+  {{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com"> --}}
+  {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"> --}}
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('icons/css/all.css') }}" rel="stylesheet">
-  <!-- <link href="{{ asset('icons/css/sb-admin.min.css') }}" rel="stylesheet"> -->
+  <link href="{{ asset('css/sb-admin.min.css') }}" rel="stylesheet">
   <link href="{{ asset('swal/dist/sweetalert2.min.css') }}" rel="stylesheet">
 </head>
-<body>
+<body id="page-top">
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel static-top">
-
-      <div class="container">
+      <!-- <div class="container"> -->
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'INECOL') }}
         </a>
@@ -79,17 +80,49 @@
             @endguest
           </ul>
         </div>
-      </div>
+      <!-- </div> -->
     </nav>
-
-    <main class="py-4">
+    <div id="wrapper">
+      <!-- Star SIDEBAR -->
+      <!-- Sidebar -->
+      <ul class="sidebar navbar-nav toggled">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Pages</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <h6 class="dropdown-header">Login Screens:</h6>
+            <a class="dropdown-item" href="login.html">Login</a>
+            <a class="dropdown-item" href="register.html">Register</a>
+            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">Other Pages:</h6>
+            <a class="dropdown-item" href="404.html">404 Page</a>
+            <a class="dropdown-item" href="blank.html">Blank Page</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Charts</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tables.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tables</span></a>
+        </li>
+      </ul>
+      <div id="content-wrapper">
+<!-- Start the main page -->
+    <div class="container-fluid ">
       @if(Session::has('message'))
-        {{-- <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
-          {{ Session::get('message') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> --}}
         <script type="text/javascript">
         swal({
           position: 'center',
@@ -100,12 +133,6 @@
           })
         </script>
       @elseif(Session::has('errors'))
-        {{-- <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
-          {{ Session::get('errors') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div> --}}
         <script type="text/javascript">
         swal({
           position: 'center',
@@ -117,8 +144,28 @@
         </script>
       @endif
       @yield('content')
-    </main>
+      <!-- Finish the main page -->
+    </div>
+    <!-- Sticky Footer -->
+    {{-- <footer class="sticky-footer">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright © INECOL 2018</span>
+        </div>
+      </div>
+    </footer> --}}
+    <!-- Sticky Footer -->
   </div>
+    <!-- Div-App -->
+    <!-- Finish SIDEBAR -->
+  </div>
+  </div>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -142,6 +189,16 @@
       </div>
     </div>
   </div>
-
+<!-- /Logout Modal-->
+<script type="text/javascript">
+(function($) {
+  // Toggle the side navigation
+  $("#sidebarToggle").on('click',function(e) {
+    e.preventDefault();
+    $("body").toggleClass("sidebar-toggled");
+    $(".sidebar").toggleClass("toggled");
+  });
+})(jQuery); // End of use strict
+</script>
 </body>
 </html>
