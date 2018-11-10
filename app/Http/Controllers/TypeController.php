@@ -22,7 +22,7 @@ class TypeController extends Controller
 
     public function getdata()
     {
-      $type = Type::select('id','nombre','created_at');
+      $type = Type::select('id','nombre','created_at','updated_at');
       //dd($type);
       return Datatables::of($type)
       ->addColumn('actions', function($type) {

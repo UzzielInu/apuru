@@ -22,7 +22,7 @@ class AntivirusController extends Controller
 
     public function getdata()
     {
-      $antivirus = Antivirus::select('id','nombre','version','created_at');
+      $antivirus = Antivirus::select('id','nombre','version','created_at','updated_at');
       //dd($antivirus);
       return Datatables::of($antivirus)
       ->addColumn('actions', function($antivirus) {

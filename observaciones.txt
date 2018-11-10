@@ -1,0 +1,19 @@
+observaciones
+
+
+* de los cruds que se muestren todos los datos ya que son pocos
+y les interesa ver el created_at & el update_at y que si se pueden
+colorear para indicar que no son editables
+
+*le insteresa una vista "general" donde vengan todos los campos de la BD estilo
+el excel que viene todo en una sola "tabla"
+
+*las vistas de houseHolder, devices & tickets se veran el lunes o martes
+para saber que es lo que quieren ver en el index y el Show
+
+*los links del login que abran una pestaña nueva
+
+*opcional o menos urgente poder ver que personas se han logeado en el sistema
+
+*opcional o menos urgente poder tener un registro de las actividades de los usuarios
+tipo archivo de logs

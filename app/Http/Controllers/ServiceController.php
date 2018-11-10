@@ -22,7 +22,7 @@ class ServiceController extends Controller
 
     public function getdata()
     {
-      $service = Service::select('id','nombre','descripcion','tipo','created_at');
+      $service = Service::select('id','nombre','descripcion','tipo','created_at','updated_at');
       //dd($service);
       return Datatables::of($service)
       ->addColumn('actions', function($service) {

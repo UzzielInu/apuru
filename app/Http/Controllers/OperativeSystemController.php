@@ -23,7 +23,7 @@ class OperativeSystemController extends Controller
 
     public function getdata()
     {
-      $os = OperativeSystem::select('id','nombre','version','created_at');
+      $os = OperativeSystem::select('id','nombre','version','created_at','updated_at');
       //dd($os);
       return Datatables::of($os)
       ->addColumn('actions', function($os) {

@@ -22,7 +22,7 @@ class ModelDeviceController extends Controller
 
     public function getdata()
     {
-      $modeldevice = ModelDevice::select('id','marca','modelo','created_at');
+      $modeldevice = ModelDevice::select('id','marca','modelo','created_at','updated_at');
       //dd($modeldevice);
       return Datatables::of($modeldevice)
       ->addColumn('actions', function($modeldevice) {

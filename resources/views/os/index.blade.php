@@ -19,6 +19,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Versión</th>
             <th scope="col">Fecha creación</th>
+            <th scope="col">Fecha actualización</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -43,6 +44,7 @@ $(function() {
       { data: 'nombre', name: 'nombre' },
       { data: 'version', name: 'version' },
       { data: 'created_at', name: 'created_at' },
+      { data: 'updated_at', name: 'updated_at' },
       { data: 'actions', name: 'actions' },
     ]
   });
