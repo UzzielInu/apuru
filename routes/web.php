@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return redirect('login');
 });
+Route::get('/home', 'HomeController@index')->name('home.index');
 Route::get('/getos', 'OperativeSystemController@getdata')->name('os.getdata');
 Route::resource('/os', 'OperativeSystemController');
 Route::get('/getantivirus', 'AntivirusController@getdata')->name('antivirus.getdata');

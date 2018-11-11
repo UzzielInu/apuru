@@ -26,10 +26,10 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel static-top">
       <!-- <div class="container"> -->
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'INECOL') }}
+            <strong>{{ config('app.name', 'INECOL') }}</strong>
         </a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-          <i class="fas fa-bars"></i>
+          <i class="fas fa-arrows-alt-h"></i>
         </button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -87,15 +87,15 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="{{url('home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <span>Inicio</span>
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{{url('antivirus')}}" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>Antivirus</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Login Screens:</h6>
