@@ -10,11 +10,11 @@
     <div class="card-header">
       <h3 class="float-left">Ubicaciones</h3>
 
-      <a href="{{url('location/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Ubicacion</a>
+      <a href="{{url('location/create')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar Ubicacion</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
-      <table id="table" name="table" class="table">
+      <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Campus</th>
@@ -42,6 +42,7 @@
 $(function() {
   $('#table').DataTable({
     responsive: true,
+    fixedHeader: true,
     processing: true,
     serverSide: true,
     ajax: '{{ url('/getlocation') }}',

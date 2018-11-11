@@ -10,11 +10,11 @@
     <div class="card-header">
       <h3 class="float-left">Modelo de dispositivos</h3>
 
-      <a href="{{url('modeldevice/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Modelo Dispositivo</a>
+      <a href="{{url('modeldevice/create')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar Modelo Dispositivo</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
-      <table id="table" name="table" class="table">
+      <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Marca</th>
@@ -39,6 +39,7 @@
 $(function() {
   $('#table').DataTable({
     responsive: true,
+    fixedHeader: true,
     processing: true,
     serverSide: true,
     ajax: '{{ url('/getmodeldevice') }}',

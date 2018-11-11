@@ -121,7 +121,7 @@
       </ul>
       <div id="content-wrapper">
 <!-- Start the main page -->
-    <div class="container-fluid ">
+    <div class="container-fluid p-0">
       @if(Session::has('message'))
         <script type="text/javascript">
         swal({

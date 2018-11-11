@@ -11,18 +11,18 @@
     <div class="card-header">
       <h3 class="float-left">Antivirus</h3>
 
-      <a href="{{url('antivirus/create')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar antivirus</a>
+      <a href="{{url('antivirus/create')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar antivirus</a>
 
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
-      <table id="table" name="table" class="table">
+      <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Versión</th>
-            <th scope="col">Fecha creación</th>
-            <th scope="col">Fecha actualización</th>
+            <th scope="col" class="">Fecha creación</th>
+            <th scope="col" class="">Fecha actualización</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -38,10 +38,56 @@
 {{-- DATATABLES --}}
 <script>
 $(function() {
-  $('#table').DataTable({
+  var table = $('#table').DataTable({
     responsive: true,
+    fixedHeader: true,
     processing: true,
     serverSide: true,
+    dom: "<'row mx-auto'<'col-md-12 mx-auto'B>>"+"<'row text-center'<'col-md-6 text-left'l><'col-md-6'f>>" + 'rt'+"<'row text-center'<'col-md-6 text-left'i><'col-md-6'p>>",
+      buttons: [
+        {//excel
+          text: 'EXCEL',
+          extend: 'excelHtml5',
+          fieldSeparator: '\t',
+          title : 'Antivurus.',
+            exportOptions: {
+              columns: [ 0, ':visible' ]
+            }
+        },
+        {//csv
+          text: 'CSV',
+          extend: 'csvHtml5',
+          fieldSeparator: '\t',
+          title : 'Antivurus.',
+          exportOptions: {
+            columns: [ 0, ':visible' ]
+          }
+        },
+        {//pdfHtml5
+          text: 'PDF',
+          extend: 'pdfHtml5',
+          fieldSeparator: '\t',
+          title : 'Antivurus.',
+          exportOptions: {
+            columns: [ 0, ':visible' ]
+          }
+        },
+        {//Print
+          text: 'Imprimir',
+          extend: 'print',
+          fieldSeparator: '\t',
+          title : 'Antivurus.',
+          exportOptions: {
+            columns: [ 0, ':visible' ]
+          }
+        },
+        {//ColumnVisual
+          text: 'Columnas',
+          extend: 'colvis',
+          fieldSeparator: '\t',
+          title : 'Columnas',
+        },
+    ],
     ajax: '{{ url('/getantivirus') }}',
     columns: [
       { data: 'nombre', name: 'nombre' },
@@ -51,6 +97,10 @@ $(function() {
       { data: 'actions', name: 'actions' },
     ]
   });
+  table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
+       var cell = table.cell({ row: rowIdx, column: 2 }).node();
+       $(cell).addClass('bg-warning');
+   });
 });
  </script>
  {{-- DATATABLES --}}

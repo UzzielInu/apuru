@@ -10,11 +10,11 @@
     <div class="card-header">
       <h3 class="float-left">Encargado ?</h3>
 
-      <a href="{{url('')}}" role="button" name="button" class="btn btn-success col-md-2 float-right">Registrar Encargado ?</a>
+      <a href="{{url('')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar Encargado ?</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
-      <table id="table" name="table" class="table">
+      <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nombre</th>
@@ -43,6 +43,7 @@
 $(function() {
   $('#table').DataTable({
     responsive: true,
+    fixedHeader: true,
     processing: true,
     serverSide: true,
     ajax: '{{ url('/gethouseholder') }}',
