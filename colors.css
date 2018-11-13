@@ -1,0 +1,11 @@
+
+html, body {
+    background-color: #174449;
+    background-image: linear-gradient(to bottom right, rgb(102, 26, 143) ,rgba(0, 100, 157, 1), rgba(0, 150, 69, 0.76));
+    background-color: rgba(0, 122, 56, 0.77)
+    background-color: rgba(3, 71, 203, 0.77)
+    color: #ffffff;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}

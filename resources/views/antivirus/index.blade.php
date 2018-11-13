@@ -5,7 +5,22 @@
 <link  href="{{asset('DataTables/datatables.css')}}" rel="stylesheet">
 <script src="{{asset('DataTables/datatables.min.js')}}"></script>
 {{-- DATATABLES --}}
+{{-- Style DT --}}
+<style>
+   a.navtor:hover {
+     background-color: #8d8d8d;
+   }
+   table.dataTable tbody td {
+     vertical-align: middle;
+   }
+   .dataTables_processing{
+     background : rgba(56, 20, 103, 0.81) !important;
+     color : #FFFFFF !important;
+     z-index: 2;
+   }
+ </style>
 
+{{-- _Style DT --}}
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
@@ -95,12 +110,15 @@ $(function() {
       { data: 'created_at', name: 'created_at' },
       { data: 'updated_at', name: 'updated_at' },
       { data: 'actions', name: 'actions' },
-    ]
+    ],
+    "language": {
+      "url": "{{asset('DataTables/spanish.json')}}"
+    },
+    "rowCallback": function(row, data, index){
+        $(row).find('td:eq(2)').addClass('bg-info');
+        $(row).find('td:eq(3)').css('color','blue');
+    }
   });
-  table.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
-       var cell = table.cell({ row: rowIdx, column: 2 }).node();
-       $(cell).addClass('bg-warning');
-   });
 });
  </script>
  {{-- DATATABLES --}}

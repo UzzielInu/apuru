@@ -23,7 +23,7 @@
 </head>
 <body id="page-top">
   <div id="app">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-laravel static-top">
+    <nav class="navbar navbar-expand-md navbar-dark navbar-laravel static-top" style="background-image: linear-gradient(to right,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1), rgb(102, 26, 143));">
       <!-- <div class="container"> -->
         <a class="navbar-brand" href="{{ url('/') }}">
             <strong>{{ config('app.name', 'INECOL') }}</strong>
@@ -85,28 +85,12 @@
     <div id="wrapper">
       <!-- Star SIDEBAR -->
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav toggled">
+      <ul class="sidebar navbar-nav toggled" style="background-image: linear-gradient(to bottom,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1), rgb(102, 26, 143));">
         <li class="nav-item active">
           <a class="nav-link" href="{{url('home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Inicio</span>
+            <span>Dashboard</span>
           </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{{url('antivirus')}}" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Antivirus</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
-            <a class="dropdown-item" href="login.html">Login</a>
-            <a class="dropdown-item" href="register.html">Register</a>
-            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item" href="blank.html">Blank Page</a>
-          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="charts.html">
@@ -117,6 +101,23 @@
           <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#pageSubmenu" data-toggle="collapse" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Catálogos</span>
+          </a>
+          <ul class="collapse navbar-nav mr-auto" style="background-color: rgba(96, 30, 190, 0.3)" id="pageSubmenu">
+              <li class="text-center">
+                  <a class="nav-link px-2" href="{{url('antivirus')}}"><i class="fas fa-shield-alt fa-fw"></i> Antivirus</a>
+              </li>
+              <li class="text-center">
+                  <a class="nav-link px-2" href="{{url('location')}}"><i class="fas fa-building fa-fw"></i> Ubicaciones</a>
+              </li>
+              <li class="text-center">
+                  <a class="nav-link px-2" href="{{url('modeldevice')}}"><i class="fas fa-microchip fa-fw"></i> Modelos</a>
+              </li>
+          </ul>
         </li>
       </ul>
       <div id="content-wrapper">
