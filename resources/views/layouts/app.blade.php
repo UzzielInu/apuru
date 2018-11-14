@@ -23,7 +23,7 @@
 </head>
 <body id="page-top">
   <div id="app">
-    <nav class="navbar navbar-expand-md navbar-dark navbar-laravel static-top" style="background-image: linear-gradient(to right,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1), rgb(102, 26, 143));">
+    <nav class="navbar navbar-expand-md navbar-dark navbar-laravel static-top" style="background-image: linear-gradient(to right,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1),rgba(0, 100, 157, 1),rgba(0, 100, 157, 1), rgba(102, 26, 143, 1));">
       <!-- <div class="container"> -->
         <a class="navbar-brand" href="{{ url('/') }}">
             <strong>{{ config('app.name', 'INECOL') }}</strong>
@@ -85,25 +85,25 @@
     <div id="wrapper">
       <!-- Star SIDEBAR -->
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav toggled" style="background-image: linear-gradient(to bottom,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1), rgb(102, 26, 143));">
+      <ul class="sidebar navbar-nav toggled" style="background-image: linear-gradient(to bottom,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1),rgba(0, 100, 157, 1),rgba(0, 100, 157, 1), rgb(102, 26, 143));">
         <li class="nav-item active">
           <a class="nav-link" href="{{url('home')}}">
-            <i class="fas fa-fw fa-tachometer-alt fa-lg"></i>
+            <i class="fas fa-chalkboard-teacher fa-lg"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="{{url('devices')}}">
             <i class="fas fas fa-desktop fa-lg"></i>
             <span>Dispositivos</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="{{url('householder')}}">
             <i class="fas fa-user-tie fa-lg"></i>
             <span>Encargados</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="{{url('tickets')}}">
             <i class="fas fa-clipboard-list fa-lg"></i>
             <span>Tickets</span></a>
         </li>
