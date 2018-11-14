@@ -20,6 +20,7 @@ class CreateLocationsTable extends Migration
             $table->string('departamento', 50);
             $table->string('nivel', 20);
             $table->string('areaTrabajo', 25);
+            $table->string('clave', 15);
             $table->timestamps();
             $table->softDeletes();
         });

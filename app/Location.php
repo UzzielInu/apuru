@@ -11,7 +11,7 @@ class Location extends Model
 
   protected $table    = 'Locations';
   protected $guarded  = ['id'];
-  protected $fillable = ['campus','edificio','departamento','nivel','areaTrabajo'];
+  protected $fillable = ['campus','edificio','departamento','nivel','areaTrabajo','clave'];
   protected $dates = ['deleted_at'];
 
   public function devices()

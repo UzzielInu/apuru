@@ -22,7 +22,7 @@ class LocationController extends Controller
 
     public function getdata()
     {
-      $location = Location::select('id','campus','edificio','departamento','nivel','areaTrabajo','created_at','updated_at');
+      $location = Location::select('id','campus','edificio','departamento','nivel','areaTrabajo','clave','created_at','updated_at');
       //dd($location);
       return Datatables::of($location)
       ->addColumn('actions', function($location) {

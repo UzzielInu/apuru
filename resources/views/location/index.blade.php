@@ -37,6 +37,7 @@
             <th scope="col">Departamento</th>
             <th scope="col">Nivel</th>
             <th scope="col">Área de trabajo</th>
+            <th scope="col">clave</th>
             <th scope="col">Fecha creación</th>
             <th scope="col">Fecha actualización</th>
             <th scope="col">Acciones</th>
@@ -112,6 +113,7 @@ $(function() {
       { data: 'departamento', name: 'departamento' },
       { data: 'nivel',        name: 'nivel'        },
       { data: 'areaTrabajo',  name: 'areaTrabajo'  },
+      { data: 'clave',  name: 'clave'  },
       { data: 'created_at',   name: 'created_at'   },
       { data: 'updated_at',   name: 'updated_at'   },
       { data: 'actions',      name: 'actions'      },
@@ -120,8 +122,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(5)').addClass('bg-secondary');
         $(row).find('td:eq(6)').addClass('bg-secondary');
+        $(row).find('td:eq(7)').addClass('bg-secondary');
     }
   });
 });
