@@ -115,8 +115,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(2)').addClass('bg-info');
-        $(row).find('td:eq(3)').css('color','blue');
+        $(row).find('td:eq(2)').addClass('bg-secondary');
+        $(row).find('td:eq(3)').addClass('bg-secondary');
     }
   });
 });

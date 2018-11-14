@@ -4,7 +4,22 @@
 <link  href="{{asset('DataTables/datatables.css')}}" rel="stylesheet">
 <script src="{{asset('DataTables/datatables.min.js')}}"></script>
 {{-- DATATABLES --}}
+{{-- Style DT --}}
+<style>
+   a.navtor:hover {
+     background-color: #8d8d8d;
+   }
+   table.dataTable tbody td {
+     vertical-align: middle;
+   }
+   .dataTables_processing{
+     background : rgba(56, 20, 103, 0.81) !important;
+     color : #FFFFFF !important;
+     z-index: 2;
+   }
+ </style>
 
+{{-- _Style DT --}}
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
@@ -45,6 +60,51 @@ $(function() {
     fixedHeader: true,
     processing: true,
     serverSide: true,
+    dom: "<'row mx-auto'<'col-md-12 mx-auto'B>>"+"<'row text-center'<'col-md-6 text-left'l><'col-md-6'f>>" + 'rt'+"<'row text-center'<'col-md-6 text-left'i><'col-md-6'p>>",
+      buttons: [
+        {//excel
+          text: 'EXCEL',
+          extend: 'excelHtml5',
+          fieldSeparator: '\t',
+          title : 'Ubicacion',
+            exportOptions: {
+              columns: [ 0, ':visible' ]
+            }
+        },
+        {//csv
+          text: 'CSV',
+          extend: 'csvHtml5',
+          fieldSeparator: '\t',
+          title : 'Ubicacion',
+          exportOptions: {
+            columns: [ 0, ':visible' ]
+          }
+        },
+        {//pdfHtml5
+          text: 'PDF',
+          extend: 'pdfHtml5',
+          fieldSeparator: '\t',
+          title : 'Ubicacion',
+          exportOptions: {
+            columns: [ 0, ':visible' ]
+          }
+        },
+        {//Print
+          text: 'Imprimir',
+          extend: 'print',
+          fieldSeparator: '\t',
+          title : 'Ubicacion',
+          exportOptions: {
+            columns: [ 0, ':visible' ]
+          }
+        },
+        {//ColumnVisual
+          text: 'Columnas',
+          extend: 'colvis',
+          fieldSeparator: '\t',
+          title : 'Columnas',
+        },
+    ],
     ajax: '{{ url('/getlocation') }}',
     columns: [
       { data: 'campus',       name: 'campus'       },
@@ -55,7 +115,14 @@ $(function() {
       { data: 'created_at',   name: 'created_at'   },
       { data: 'updated_at',   name: 'updated_at'   },
       { data: 'actions',      name: 'actions'      },
-    ]
+    ],
+    "language": {
+      "url": "{{asset('DataTables/spanish.json')}}"
+    },
+    "rowCallback": function(row, data, index){
+        $(row).find('td:eq(5)').addClass('bg-secondary');
+        $(row).find('td:eq(6)').addClass('bg-secondary');
+    }
   });
 });
  </script>

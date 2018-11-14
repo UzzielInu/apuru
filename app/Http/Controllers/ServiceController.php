@@ -29,7 +29,7 @@ class ServiceController extends Controller
         return '
           <div class="btn-group dropleft">
             <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Acciones
+            <i class="fas fa-bars fa-lg"></i>
             </button>
             <div class="dropdown-menu">
                 <a href="'.route('service.edit', $service->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>

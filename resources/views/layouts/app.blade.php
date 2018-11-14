@@ -88,34 +88,48 @@
       <ul class="sidebar navbar-nav toggled" style="background-image: linear-gradient(to bottom,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1), rgb(102, 26, 143));">
         <li class="nav-item active">
           <a class="nav-link" href="{{url('home')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-tachometer-alt fa-lg"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
+            <i class="fas fas fa-desktop fa-lg"></i>
+            <span>Dispositivos</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <i class="fas fa-user-tie fa-lg"></i>
+            <span>Encargados</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tables.html">
+            <i class="fas fa-clipboard-list fa-lg"></i>
+            <span>Tickets</span></a>
         </li>
         <li class="nav-item dropdown">
           <a href="#pageSubmenu" data-toggle="collapse" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
-            <i class="fas fa-fw fa-folder"></i>
+            <i class="fas fa-fw fa-folder fa-lg"></i>
             <span>Catálogos</span>
           </a>
           <ul class="collapse navbar-nav mr-auto" style="background-color: rgba(96, 30, 190, 0.3)" id="pageSubmenu">
               <li class="text-center">
-                  <a class="nav-link px-2" href="{{url('antivirus')}}"><i class="fas fa-shield-alt fa-fw"></i> Antivirus</a>
+                  <a class="nav-link px-3" href="{{url('antivirus')}}"><i class="fas fa-shield-alt fa-lg"></i> Antivirus</a>
               </li>
               <li class="text-center">
-                  <a class="nav-link px-2" href="{{url('location')}}"><i class="fas fa-building fa-fw"></i> Ubicaciones</a>
+                  <a class="nav-link px-3" href="{{url('location')}}"><i class="fas fa-building fa-lg"></i> Ubicacion</a>
               </li>
               <li class="text-center">
-                  <a class="nav-link px-2" href="{{url('modeldevice')}}"><i class="fas fa-microchip fa-fw"></i> Modelos</a>
+                  <a class="nav-link px-3" href="{{url('modeldevice')}}"><i class="fas fa-microchip fa-lg"></i> Modelo</a>
+              </li>
+              <li class="text-center">
+                  <a class="nav-link px-3" href="{{url('os')}}"><i class="fab fa-steam fa-lg"></i> S.O.</a>
+              </li>
+              <li class="text-center">
+                  <a class="nav-link px-3" href="{{url('service')}}"><i class="fas fa-toolbox fa-lg"></i> Servicio</a>
+              </li>
+              <li class="text-center">
+                  <a class="nav-link px-3" href="{{url('type')}}"><i class="fas fa-memory fa-lg"></i>Hardware</a>
               </li>
           </ul>
         </li>
