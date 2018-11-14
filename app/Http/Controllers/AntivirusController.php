@@ -28,7 +28,7 @@ class AntivirusController extends Controller
       ->addColumn('actions', function($antivirus) {
         return '
           <div class="btn-group dropleft">
-            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bars fa-lg"></i>
             </button>
             <div class="dropdown-menu">

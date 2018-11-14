@@ -18,6 +18,12 @@
      color : #FFFFFF !important;
      z-index: 2;
    }
+   .title{
+     color: white;
+   }
+   .thead{
+      background : rgba(56, 20, 103, 0.81)
+   }
  </style>
 
 {{-- _Style DT --}}
@@ -32,13 +38,13 @@
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
       <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
-        <thead class="thead-dark">
+        <thead class="thead">
           <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Versión</th>
-            <th scope="col" class="">Fecha creación</th>
-            <th scope="col" class="">Fecha actualización</th>
-            <th scope="col">Acciones</th>
+            <th scope="col" class="title">Nombre</th>
+            <th scope="col" class="title">Versión</th>
+            <th scope="col" class="title">Fecha creación</th>
+            <th scope="col" class="title">Fecha actualización</th>
+            <th scope="col" class="title">Acciones</th>
           </tr>
         </thead>
         {{-- <tbody>

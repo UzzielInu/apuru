@@ -17,6 +17,12 @@
      color : #FFFFFF !important;
      z-index: 2;
    }
+   .title{
+     color: white;
+   }
+   .thead{
+      background : rgba(56, 20, 103, 0.81)
+   }
  </style>
 
 {{-- _Style DT --}}
@@ -30,17 +36,17 @@
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
       <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
-        <thead class="thead-dark">
+        <thead class="thead">
           <tr>
-            <th scope="col">Campus</th>
-            <th scope="col">Edificio</th>
-            <th scope="col">Departamento</th>
-            <th scope="col">Nivel</th>
-            <th scope="col">Área de trabajo</th>
-            <th scope="col">clave</th>
-            <th scope="col">Fecha creación</th>
-            <th scope="col">Fecha actualización</th>
-            <th scope="col">Acciones</th>
+            <th scope="col" class="title">Campus</th>
+            <th scope="col" class="title">Edificio</th>
+            <th scope="col" class="title">Departamento</th>
+            <th scope="col" class="title">Nivel</th>
+            <th scope="col" class="title">Área de trabajo</th>
+            <th scope="col" class="title">clave</th>
+            <th scope="col" class="title">Fecha creación</th>
+            <th scope="col" class="title">Fecha actualización</th>
+            <th scope="col" class="title">Acciones</th>
           </tr>
         </thead>
         {{-- <tbody>
@@ -122,8 +128,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(6)').addClass('bg-secondary');
-        $(row).find('td:eq(7)').addClass('bg-secondary');
+        $(row).find('td:eq(6)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(7)').css('background-color', 'rgba(189, 189, 189, 0.75)');
     }
   });
 });

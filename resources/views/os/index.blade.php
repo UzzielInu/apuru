@@ -17,7 +17,7 @@
      color : #FFFFFF !important;
      z-index: 2;
    }
-   .test{
+   .title{
      color: white;
    }
    .thead{
@@ -37,11 +37,11 @@
       <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
         <thead class="thead">
           <tr>
-            <th scope="col" class="test">Nombre</th>
-            <th scope="col" class="test">Versión</th>
-            <th scope="col" class="test">Fecha creación</th>
-            <th scope="col" class="test">Fecha actualización</th>
-            <th scope="col" class="test">Acciones</th>
+            <th scope="col" class="title">Nombre</th>
+            <th scope="col" class="title">Versión</th>
+            <th scope="col" class="title">Fecha creación</th>
+            <th scope="col" class="title">Fecha actualización</th>
+            <th scope="col" class="title">Acciones</th>
           </tr>
         </thead>
         {{-- <tbody>
@@ -118,8 +118,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(2)').addClass('bg-secondary');
-        $(row).find('td:eq(3)').addClass('bg-secondary');
+        $(row).find('td:eq(2)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(3)').css('background-color', 'rgba(189, 189, 189, 0.75)');
     }
 
   });
