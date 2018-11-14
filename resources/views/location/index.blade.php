@@ -64,7 +64,7 @@ $(function() {
     dom: "<'row mx-auto'<'col-md-12 mx-auto'B>>"+"<'row text-center'<'col-md-6 text-left'l><'col-md-6'f>>" + 'rt'+"<'row text-center'<'col-md-6 text-left'i><'col-md-6'p>>",
       buttons: [
         {//excel
-          text: 'EXCEL',
+          text: '<i class="fas fa-file-excel fa-3x"></i>',
           extend: 'excelHtml5',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -73,7 +73,7 @@ $(function() {
             }
         },
         {//csv
-          text: 'CSV',
+          text: '<i class="fas fa-file-csv fa-3x"></i>',
           extend: 'csvHtml5',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -82,7 +82,7 @@ $(function() {
           }
         },
         {//pdfHtml5
-          text: 'PDF',
+          text: '<i class="fas fa-file-pdf fa-3x"></i>',
           extend: 'pdfHtml5',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -91,7 +91,7 @@ $(function() {
           }
         },
         {//Print
-          text: 'Imprimir',
+          text: '<i class="fas fa-print fa-3x"></i>',
           extend: 'print',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -100,7 +100,7 @@ $(function() {
           }
         },
         {//ColumnVisual
-          text: 'Columnas',
+          text: '<i class="fas fa-columns fa-3x"></i>',
           extend: 'colvis',
           fieldSeparator: '\t',
           title : 'Columnas',
