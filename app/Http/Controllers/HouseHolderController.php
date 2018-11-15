@@ -71,9 +71,13 @@ class HouseHolderController extends Controller
      * @param  \App\HouseHolder  $houseHolder
      * @return \Illuminate\Http\Response
      */
-    public function show(HouseHolder $houseHolder)
+    public function show($id)
     {
-        //
+      $householder = HouseHolder::find($id);
+      if($householder == NULL){
+        return redirect('householder')->with('errors','El item no existe');
+      }
+      return view('householder.show', compact('householder'));
     }
 
     /**

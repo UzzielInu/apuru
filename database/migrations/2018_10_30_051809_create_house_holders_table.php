@@ -20,7 +20,7 @@ class CreateHouseHoldersTable extends Migration
             $table->string('materno', 20);
             $table->string('extension', 4);
             $table->string('correo', 35);
-            $table->unsignedInteger('location_id')->unique();
+            $table->unsignedInteger('location_id');
             $table->foreign('location_id')->references('id')->on('locations');
             $table->timestamps();
             $table->softDeletes();
