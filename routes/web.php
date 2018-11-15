@@ -30,7 +30,9 @@ Route::resource('/location','LocationController');
 Route::get('/gethouseholder','HouseHolderController@getdata')->name('householder.getdata');
 Route::resource('/householder','HouseHolderController');
 
-Route::resource('/devices', 'DevicesController');
+Route::get('/getdevice','DevicesController@getdata')->name('device.getdata');
+Route::resource('/device', 'DevicesController');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();

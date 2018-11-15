@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Device extends Model
 {
-  protected $table = 'model_devices';
+  protected $table = 'devices';
+  protected $guarded = ['id'];
+  protected $fillable = ['noSerie','noInventario','dirIp','dirMac','observaciones','operative_system_id','type_id','antivirus_id','model_device_id','house_holder_id','location_id','created_at','updated_at'];
 
   public function os()
     {

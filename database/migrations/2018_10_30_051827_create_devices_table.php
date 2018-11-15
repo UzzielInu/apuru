@@ -15,7 +15,7 @@ class CreateDevicesTable extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('noSerie', 25)->unique();
+            $table->string('noSerie', 25);
             $table->string('noInventario', 10);
             $table->string('dirIp', 16);
             $table->string('dirMac', 16);

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Devices;
+use App\Device;
 use Illuminate\Http\Request;
+use Validator;
+use Session;
+use DataTables;
 
 class DevicesController extends Controller
 {
@@ -17,6 +20,30 @@ class DevicesController extends Controller
       return view('devices.index');
     }
 
+    public function getdata()
+    {
+      $device = Device::select('id','noSerie','dirIp','dirMAc','observaciones','operative_system_id','type_id','antivirus_id','model_device_id','house_holder_id','location_id','created_at','updated_at');
+      //dd($device);
+      return Datatables::of($device)
+      ->addColumn('actions', function($device) {
+        return '
+          <div class="btn-group dropleft">
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Acciones
+            </button>
+            <div class="dropdown-menu">
+                <a href="'.route('device.edit', $device->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
+              <div class="dropdown-divider"></div>
+              <form action="'.action('HouseHolderController@destroy', ['id' => $device->id]).'" method="POST">
+                <input name="_token" type="hidden" value="'.csrf_token().'">
+                <input name="_method" type="hidden" value="DELETE">
+                <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
+              </form>
+            </div>
+          </div>';
+      })
+      ->rawColumns(['actions'])->toJson();
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -78,7 +105,7 @@ class DevicesController extends Controller
      * @param  \App\Devices  $devices
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Devices $devices)
+    public function destroy($id)
     {
         //
     }
