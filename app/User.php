@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'first_login',
     ];
 
     public function roles()
@@ -33,6 +33,12 @@ class User extends Authenticatable
       return $this
         ->belongsToMany('App\Role')
         ->withTimestamps();
+    }
+
+    public function lastLogin()
+    {
+      //to convert into mexican date...
+      return $this->last_login;
     }
 
     public function authorizeRoles($roles)

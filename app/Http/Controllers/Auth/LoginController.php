@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Carbon;
 class LoginController extends Controller
 {
     /*
@@ -39,6 +39,15 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-      return redirect('/os');
+      if(is_null($user->last_login)){
+        $user->last_login = Carbon\Carbon::now()->toDateTimeString();
+        $user->save();
+        return redirect('/home')->with('errors','ESTE ES TU PRIMER LOGIN, cambia tu contraseña');
+      }
+      else{
+        $user->last_login = Carbon\Carbon::now()->toDateTimeString();
+        $user->save();
+        return redirect('/home');
+      }
     }
 }

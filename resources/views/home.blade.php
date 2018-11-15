@@ -4,13 +4,13 @@
 <div class="container-fluid">
   <!-- Icon Cards-->
   <div class="row">
-    <div class="col-lg-3 mb-3">
-      <div class="card text-white bg-primary">
+    <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white bg-success">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fas fa-fw fa-comments"></i>
           </div>
-          <div class="mr-5">0 Servicios</div>
+          <div class="mr-5">{{$antivirus}} Antivirus</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">Ver detalles</span>
@@ -21,15 +21,47 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-white bg-warning o-hidden h-100">
+      <div class="card text-white bg-primary o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fas fa-fw fa-list"></i>
           </div>
-          <div class="mr-5">11 New Tasks!</div>
+          <div class="mr-5">{{$device}} Dispositivos</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
-          <span class="float-left">View Details</span>
+          <span class="float-left">Ver detalles</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white o-hidden h-100" style="background:rgb(25, 37, 187)">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-fw fa-shopping-cart"></i>
+          </div>
+          <div class="mr-5">{{$houseHolder}} Responsables</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">Ver detalles</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white o-hidden h-100" style="background:rgb(103, 3, 164)">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-fw fa-life-ring"></i>
+          </div>
+          <div class="mr-5">{{$location}}3 Ubicaciones</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
           </span>
@@ -40,12 +72,44 @@
       <div class="card text-white bg-success o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-shopping-cart"></i>
+            <i class="fas fa-fw fa-life-ring"></i>
           </div>
-          <div class="mr-5">123 New Orders!</div>
+          <div class="mr-5">{{$modelDevice}} Modelos</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
-          <span class="float-left">View Details</span>
+          <span class="float-left">Ver detalles</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white bg-primary o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-fw fa-life-ring"></i>
+          </div>
+          <div class="mr-5">{{$operativeSystem}} Sistemas Operativos</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">Ver detalles</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white o-hidden h-100" style="background:rgb(25, 37, 187)">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-fw fa-life-ring"></i>
+          </div>
+          <div class="mr-5">{{$service}} Servicios</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
           </span>
@@ -58,10 +122,26 @@
           <div class="card-body-icon">
             <i class="fas fa-fw fa-life-ring"></i>
           </div>
-          <div class="mr-5">13 New Tickets!</div>
+          <div class="mr-5">{{$ticket}} Tickets  </div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
-          <span class="float-left">View Details</span>
+          <span class="float-left">Ver detalles</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white bg-success o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-fw fa-life-ring"></i>
+          </div>
+          <div class="mr-5">{{$user}} Usuarios</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
           </span>
@@ -74,9 +154,9 @@
     <div class="card col-md-6 mb-3">
       <div class="card-header">
         <i class="fas fa-chart-area"></i>
-        Area Chart Example</div>
+        Usuarios que iniciaron sesión esta semana</div>
       <div class="card-body">
-        <canvas id="myBarChart" width="100%" height="30"></canvas>
+        <canvas id="myBarChart" width="100%" height="50"></canvas>
       </div>
       <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
     </div>
@@ -85,9 +165,9 @@
     <div class="card col-md-6 mb-3">
       <div class="card-header">
         <i class="fas fa-chart-area"></i>
-        Area Chart Example</div>
+        Servicios realizados esta semana</div>
       <div class="card-body">
-        <canvas id="myPieChart" width="100%" height="30"></canvas>
+        <canvas id="myPieChart" width="100%" height="50"></canvas>
       </div>
       <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
     </div>
@@ -105,22 +185,22 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April"],
+    labels: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"],
     datasets: [{
-      label: "Revenue",
-      backgroundColor:  ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      label: "Usuarios",
+      backgroundColor:  ['#007bff', '#dc3545', '#ffc107', '#28a745', 'rgb(175, 146, 103)', 'rgb(192, 12, 205)', 'rgb(6, 40, 162)'],
       borderColor: "rgba(2,117,216,1)",
-      data: [4215, 5312, 6251, 7841],
+      data: [1, 5, 6, 9, 2, 3, 12],
     }],
   },
   options: {
     scales: {
       xAxes: [{
         time: {
-          unit: 'month'
+          unit: 'Days'
         },
         gridLines: {
-          display: false
+          display: true
         },
         ticks: {
           maxTicksLimit: 6
@@ -129,7 +209,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 15,
           maxTicksLimit: 5
         },
         gridLines: {
@@ -155,7 +235,7 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["Blue", "Red", "Yellow", "Green"],
+    labels: ["Soporte", "Red", "Problemas", "Otros"],
     datasets: [{
       data: [12.21, 15.58, 11.25, 8.32],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
