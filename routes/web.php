@@ -29,6 +29,8 @@ Route::get('/getlocation','LocationController@getdata')->name('location.getdata'
 Route::resource('/location','LocationController');
 Route::get('/gethouseholder','HouseHolderController@getdata')->name('householder.getdata');
 Route::resource('/householder','HouseHolderController');
+Route::get('/getusers','UserController@getdata')->name('users.getdata');
+Route::resource('/users','UserController');
 
 Route::get('/getdevice','DevicesController@getdata')->name('device.getdata');
 Route::resource('/device', 'DevicesController');

@@ -34,7 +34,7 @@ class DevicesController extends Controller
             <div class="dropdown-menu">
                 <a href="'.route('device.edit', $device->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
               <div class="dropdown-divider"></div>
-              <form action="'.action('HouseHolderController@destroy', ['id' => $device->id]).'" method="POST">
+              <form action="'.action('DevicesController@destroy', ['id' => $device->id]).'" method="POST">
                 <input name="_token" type="hidden" value="'.csrf_token().'">
                 <input name="_method" type="hidden" value="DELETE">
                 <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
