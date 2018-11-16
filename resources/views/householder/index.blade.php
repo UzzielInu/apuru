@@ -53,7 +53,7 @@ $(function() {
       { data: 'materno',      name: 'materno'      },
       { data: 'extension',    name: 'extension'    },
       { data: 'correo',       name: 'correo'    },
-      { data: 'location_id',  name: 'location_id'  },
+      { data: 'location.clave',  name: 'location.clave'  },
       { data: 'created_at',   name: 'created_at'   },
       { data: 'updated_at',   name: 'updated_at' },
       { data: 'actions',      name: 'actions'      },

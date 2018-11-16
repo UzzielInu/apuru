@@ -27,7 +27,9 @@ class HouseHolderController extends Controller
      */
      public function getdata()
      {
-       $householder = HouseHolder::select('id','nombre','paterno','materno','extension','correo','location_id','created_at','updated_at');
+       $householder = HouseHolder::with(array('location'=>function($query){
+                      $query->select('id','clave');
+                      }))->select('id','nombre','paterno','materno','extension','correo','location_id','created_at','updated_at');
        //dd($householder);
        return Datatables::of($householder)
        ->addColumn('actions', function($householder) {

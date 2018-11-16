@@ -20,7 +20,7 @@
         <input type="text" id="cliente" name="cliente" class="form-control col-md-9 text-center" value="{{$ticket->cliente}}" readonly>
       </div>
       <div class="form-group row col-md-12 mx-0 md-0">
-        <label for="o" class="col-md-3 col-form-label">Dispositivo </label>
+        <label for="o" class="col-md-3 col-form-label col-mb-0">Dispositivo </label>
         <input type="text" id="noserie" name="noserie" class="form-control col-md-9 offset-3 text-center" value="No. Serie: {{$ticket->device->noSerie}}" readonly>
         <input type="text" id="noinventario" name="noinventario" class="form-control col-md-9 offset-3 text-center" value="No. Inventario: {{$ticket->device->noInventario}}" readonly>
         <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Direccion IP: {{$ticket->device->dirIp}}" readonly>
