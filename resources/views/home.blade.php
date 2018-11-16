@@ -58,7 +58,7 @@
           <div class="card-body-icon">
             <i class="fas fa-fw fa-life-ring"></i>
           </div>
-          <div class="mr-5">{{$location}}3 Ubicaciones</div>
+          <div class="mr-5">{{$location}} Ubicaciones</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">Ver detalles</span>
