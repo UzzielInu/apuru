@@ -93,7 +93,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('devices')}}">
+          <a class="nav-link" href="{{url('device')}}">
             <i class="fas fas fa-desktop fa-lg"></i>
             <span>Dispositivos</span></a>
         </li>
@@ -103,7 +103,7 @@
             <span>Encargados</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('tickets')}}">
+          <a class="nav-link" href="{{url('ticket')}}">
             <i class="fas fa-clipboard-list fa-lg"></i>
             <span>Tickets</span></a>
         </li>

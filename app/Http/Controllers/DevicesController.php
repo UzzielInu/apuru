@@ -22,7 +22,7 @@ class DevicesController extends Controller
 
     public function getdata()
     {
-      $device = Device::select('id','noSerie','dirIp','dirMAc','observaciones','operative_system_id','type_id','antivirus_id','model_device_id','house_holder_id','location_id','created_at','updated_at');
+      $device = Device::select('id','noSerie','noInventario','dirIp','dirMAc','observaciones','operative_system_id','type_id','antivirus_id','model_device_id','house_holder_id','location_id','created_at','updated_at');
       //dd($device);
       return Datatables::of($device)
       ->addColumn('actions', function($device) {

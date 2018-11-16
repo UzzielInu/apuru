@@ -49,6 +49,7 @@ class HouseHolderController extends Controller
        })
        ->rawColumns(['actions'])->toJson();
      }
+
     public function create()
     {
         //
