@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Device extends Model
 {
-<<<<<<< HEAD
-=======
-
->>>>>>> c6d4eeb989d3d62543d6a7d04b462a375f02bded
   protected $table    = 'devices';
   protected $guarded  = ['id'];
   protected $fillable = ['noSerie',

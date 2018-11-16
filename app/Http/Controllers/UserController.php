@@ -6,7 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Validator;
 use DataTables;
-
+use Hash;
+use App\Role;
 class UserController extends Controller
 {
   public function index()
@@ -47,19 +48,26 @@ class UserController extends Controller
    // Validator is often used on stores & updates
   public function store(Request $request)
   {
-    // $validator = Validator::make($request->all(),
-    // [
-    //   '_token'  => 'required',
-    //   'nombre'  => 'required',
-    //   'version' => 'required',
-    // ]);
-    //
-    // if ($validator->fails())
-    // {
-    //   return redirect()->back()->withErrors($validator->errors());
-    // }
-    // $os = OperativeSystem::create($request->all());
-    // return redirect('/os')->with('message', 'Sistema Operativo Guardado');
+    $validator = Validator::make($request->all(),
+    [
+      '_token'  => 'required',
+      'name' => 'required|string|max:255',
+      'email' => 'required|string|email|max:255|unique:users',
+      'password' => 'required|string|min:6|confirmed',
+    ]);
+
+    if ($validator->fails())
+    {
+      return redirect()->back()->withErrors($validator->errors());
+    }
+
+    $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+    ]);
+    $user->roles()->attach(Role::where('name', 'user')->first());
+    return redirect('/users')->with('message', 'Usuario Registrado');
   }
 
   public function show($id)

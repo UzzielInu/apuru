@@ -93,6 +93,11 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{url('users')}}">
+            <i class="fas fa-users fa-lg"></i>
+            <span>Usuarios</span></a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{url('device')}}">
             <i class="fas fas fa-desktop fa-lg"></i>
             <span>Dispositivos</span></a>
