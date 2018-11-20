@@ -8,27 +8,43 @@
     </div>
     {!! Form::model($location, ['action' => 'LocationController@store']) !!}
     <div class="card-body">
-      <div class="row justify-content-center my-2">
-        <label for="campus">Campus</label>
-        <input type="text" id="campus" name="campus" value="" class="form-control text-center" placeholder="Campus">
+      <div class="form-group row justify-content-center my-4">
+        <label for="campus" class="col-sm-2 col-form-label">Campus</label>
+        <div class="col-sm-10">
+        <input type="text" id="campus" name="campus" value="" class="form-control text-center" placeholder="Ejemplo: I">
+        </div>
       </div>
-      <div class="row justify-content-center my-2">
-        <label for="edificio">Edificio</label>
-        <input type="text" id="edificio" name="edificio" value="" class="form-control text-center" placeholder="Edificio">
+      <div class="form-group row justify-content-center my-4">
+        <label for="edificio" class="col-sm-2 col-form-label">Edificio</label>
+        <div class="col-sm-10">
+        <input type="text" id="edificio" name="edificio" value="" class="form-control text-center" placeholder="Ejemplo: A">
+        </div>
       </div>
-      <div class="row justify-content-center my-2">
-        <label for="departamento">Departamento</label>
-        <input type="text" id="departamento" name="departamento" value="" class="form-control text-center" placeholder="Departamento">
+      <div class="form-group row justify-content-center my-4">
+        <label for="departamento" class="col-sm-2 col-form-label">Departamento</label>
+        <div class="col-sm-10">
+        <input type="text" id="departamento" name="departamento" value="" class="form-control text-center" placeholder="Ejemplo: Coordinación de TIC">
+        </div>
       </div>
-      <div class="row justify-content-center my-2">
-        <label for="nivel">Nivel</label>
-        <input type="text" id="nivel" name="nivel" value="" class="form-control text-center" placeholder="Nivel">
+      <div class="form-group row justify-content-center my-4">
+        <label for="nivel" class="col-sm-2 col-form-label">Nivel</label>
+        <div class="col-sm-10">
+        <input type="text" id="nivel" name="nivel" value="" class="form-control text-center" placeholder="Ejemplo: Planta baja">
+        </div>
       </div>
-      <div class="row justify-content-center my-2">
-        <label for="areaTrabajo">Área de trabajo</label>
-        <input type="text" id="areaTrabajo" name="areaTrabajo" value="" class="form-control text-center" placeholder="área de trabajo">
+      <div class="form-group row justify-content-center my-4">
+        <label for="areaTrabajo" class="col-sm-2 col-form-label">Área de trabajo</label>
+        <div class="col-sm-10">
+        <input type="text" id="areaTrabajo" name="areaTrabajo" value="" class="form-control text-center" placeholder="Ejemplo: Cubículo">
+        </div>
       </div>
-            <div class="row justify-content-center mt-4">
+      <div class="form-group row justify-content-center my-4">
+        <label for="clave" class="col-sm-2 col-form-label">Clave</label>
+        <div class="col-sm-10">
+        <input type="text" id="clave" name="clave" value="" class="form-control text-center" placeholder="Ejemplo: I-A-PB">
+        </div>
+      </div>
+      <div class="form-group row justify-content-center mt-5">
         <button type="submit" name="button" class="btn btn-success btn-block col-md-3"><i class="fas fa-save fa-fw fa-lg"></i> Guardar</button>
       </div>
     </div>

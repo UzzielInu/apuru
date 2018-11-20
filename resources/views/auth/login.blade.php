@@ -7,7 +7,7 @@
   <title>{{ config('app.name', 'INECOL-SYSTEM') }}</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}"></script>
   <link href="{{ asset('icons/css/all.css') }}" rel="stylesheet">
   <!-- Fonts -->
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -131,13 +131,21 @@
               </form>
             </div>
           </div>
-          <div class="links">
-            <a href="https://www.inecol.mx/inecol/index.php/es/" target="_blank"><i class="fas fa-globe fa-2x pt-3"></i></a>
-            <a href="https://www.facebook.com/inecolxalapa/" target="_blank"><i class="fab fa-facebook-square fa-2x pt-3"></i></a>
-            <a href="https://www.instagram.com/explore/locations/200925733273046/inecol-instituto-de-ecologia-ac/" target="_blank"><i class="fab fa-instagram fa-2x pt-3"></i></a>
-            <a href="https://twitter.com/Inecol_mx" target="_blank"><i class="fab fa-twitter-square fa-2x pt-3"></i></a>
+          <div class="links mt-3 col-md-12">
+            <a href="https://www.inecol.mx/inecol/index.php/es/" target="_blank" class="btn" data-toggle="tooltip" data-placement="top" title="Inecol.mx"><i class="fas fa-globe fa-2x"></i></a>
+            <a href="https://www.facebook.com/inecolxalapa/" target="_blank" class="btn" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fab fa-facebook-square fa-2x"></i></a>
+            <a href="https://www.instagram.com/explore/locations/200925733273046/inecol-instituto-de-ecologia-ac/" target="_blank" class="btn" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://twitter.com/Inecol_mx" target="_blank" class="btn" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fab fa-twitter-square fa-2x"></i></a>
           </div>
       </div>
     </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip({
+      trigger : 'hover'
+    });
+  });
+</script>

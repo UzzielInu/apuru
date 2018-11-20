@@ -31,7 +31,7 @@
     <div class="card-header">
       <h3 class="float-left">Ubicaciones</h3>
 
-      <a href="{{url('location/create')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar Ubicacion</a>
+      <a href="{{url('location/create')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar Ubicación</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
@@ -130,6 +130,30 @@ $(function() {
     "rowCallback": function(row, data, index){
         $(row).find('td:eq(6)').css('background-color', 'rgba(189, 189, 189, 0.75)');
         $(row).find('td:eq(7)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+    },
+    "fnDrawCallback": function( oSettings ) {
+      $('[data-toggle="tooltip"]').tooltip({
+         trigger : 'hover',
+      });
+      $( ".dtbutton" ).click(function() {
+        console.log('holis');
+        swal({
+           title: '¿Está Seguro?',
+           text: "El registro de borrará",
+           type: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#810000',
+           cancelButtonColor: '#363636',
+           confirmButtonText: 'Borrar',
+           cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {//after confirn, do the submit
+             var sw = $(this).parent().attr('id');
+             console.log(sw);
+             $('#'+sw).submit();
+          }
+        })
+      });
     }
   });
 });

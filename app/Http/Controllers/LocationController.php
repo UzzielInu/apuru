@@ -27,17 +27,17 @@ class LocationController extends Controller
       return Datatables::of($location)
       ->addColumn('actions', function($location) {
         return '
-          <div class="btn-group dropleft">
-            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="btn-group dropleft" data-toggle="tooltip" data-placement="top" title="Acciones">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bars fa-lg"></i>
             </button>
             <div class="dropdown-menu">
                 <a href="'.route('location.edit', $location->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
               <div class="dropdown-divider"></div>
-              <form action="'.action('LocationController@destroy', ['id' => $location->id]).'" method="POST">
+              <form id="del'.$location->id.'" action="'.action('LocationController@destroy', ['id' => $location->id]).'" method="POST">
                 <input name="_token" type="hidden" value="'.csrf_token().'">
                 <input name="_method" type="hidden" value="DELETE">
-                <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
+                <button type="button" class="dropdown-item dtbutton"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
               </form>
             </div>
           </div>';
@@ -72,6 +72,7 @@ class LocationController extends Controller
         'departamento'   => 'required',
         'nivel'   => 'required',
         'areaTrabajo'   => 'required',
+        'clave'   => 'required',
       ]);
 
       if ($validator->fails())

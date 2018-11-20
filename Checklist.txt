@@ -1,0 +1,10 @@
+Here is a list for developers, what must be on every view.
+
+index:
+-datatables
+|-----responsive & buttons
+|-----table header  : purple
+|-----processing    : purple
+|-----action buttons: blue
+|----Confirm Swal
+|----

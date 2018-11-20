@@ -21,6 +21,11 @@
   <link href="{{ asset('css/sb-admin.min.css') }}" rel="stylesheet">
   <link href="{{ asset('swal/dist/sweetalert2.min.css') }}" rel="stylesheet">
 </head>
+<style media="screen">
+  .dropdown-item:focus, .dropdown-item:hover {
+    background-color: #a8abba;
+  }
+</style>
 <body id="page-top">
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-dark navbar-laravel static-top" style="background-image: linear-gradient(to right,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1),rgba(0, 100, 157, 1),rgba(0, 100, 157, 1), rgba(102, 26, 143, 1));">

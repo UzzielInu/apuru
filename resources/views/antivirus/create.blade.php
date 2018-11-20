@@ -8,15 +8,19 @@
     </div>
     {!! Form::model($antivirus, ['action' => 'AntivirusController@store']) !!}
     <div class="card-body">
-      <div class="row justify-content-center my-2">
-        <label for="nombre">Nombre Antivirus</label>
-        <input type="text" id="nombre" name="nombre" value="" class="form-control text-center" placeholder="Antivirus">
+      <div class="form-group row justify-content-center my-5">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre Antivirus</label>
+        <div class="col-sm-10">
+          <input type="text" id="nombre" name="nombre" value="" class="form-control text-center" placeholder="Ejemplo: Kaspersky">
+        </div>
       </div>
-      <div class="row justify-content-center my-2">
-        <label for="version">Versión Antivirus</label>
-        <input type="text" id="version" name="version" value="" class="form-control text-center" placeholder="Versión de Antivirus">
+      <div class="form-group row justify-content-center my-5">
+        <label for="version" class="col-sm-2 col-form-label">Versión Antivirus</label>
+        <div class="col-sm-10">
+          <input type="text" id="version" name="version" value="" class="form-control text-center" placeholder="Ejemplo: Internet Security 2020">
+        </div>
       </div>
-      <div class="row justify-content-center mt-4">
+      <div class="row justify-content-center my-5">
         <button type="submit" name="button" class="btn btn-success btn-block col-md-3"><i class="fas fa-save fa-fw fa-lg"></i> Guardar</button>
       </div>
     </div>
