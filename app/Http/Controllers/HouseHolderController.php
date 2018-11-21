@@ -34,17 +34,17 @@ class HouseHolderController extends Controller
        return Datatables::of($householder)
        ->addColumn('actions', function($householder) {
          return '
-           <div class="btn-group dropleft">
-             <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Acciones
+          <div class="btn-group dropleft" data-toggle="tooltip" data-placement="top" title="Acciones">
+             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <i class="fas fa-bars fa-lg"></i>
              </button>
              <div class="dropdown-menu">
                  <a href="'.route('householder.edit', $householder->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
-               <div class="dropdown-divider"></div>
-               <form action="'.action('HouseHolderController@destroy', ['id' => $householder->id]).'" method="POST">
+               <div class="dropdown-divider my-1"></div>
+               <form id="del'.$householder->id.'" action="'.action('HouseHolderController@destroy', ['id' => $householder->id]).'" method="POST">
                  <input name="_token" type="hidden" value="'.csrf_token().'">
                  <input name="_method" type="hidden" value="DELETE">
-                 <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
+                 <button type="button" class="dropdown-item dtbutton"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
                </form>
              </div>
            </div>';
@@ -112,8 +112,14 @@ class HouseHolderController extends Controller
      * @param  \App\HouseHolder  $houseHolder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HouseHolder $houseHolder)
+    public function destroy($id)
     {
-        //
-    }
+        $householder = HouseHolder::find($id);
+        try {
+          $householder->delete();
+        } catch (\Exception $e) {
+          return redirect('/householder')->with('errors', 'Ha ocurrido un problema');
+        }
+        return redirect('/householder')->with('message', ' Encargado Eliminado');
+      }
 }
