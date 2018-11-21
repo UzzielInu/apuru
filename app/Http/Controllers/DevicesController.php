@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use Validator;
 use Session;
 use DataTables;
+use App\OperativeSystem;
+use App\Type;
+use App\Antivirus;
+use App\ModelDevice;
+use App\HouseHolder;
+use App\Location;
 
 class DevicesController extends Controller
 {
@@ -51,7 +57,14 @@ class DevicesController extends Controller
      */
     public function create()
     {
-        //
+      $device = new Device;
+      $oss = OperativeSystem::get(['id','nombre','version']);
+      $types = Type::get(['id','nombre']);
+      $antivirus = Antivirus::get(['id','nombre','version']);
+      $models = ModelDevice::get(['id','marca','modelo']);
+      $householders = HouseHolder::get(['id','nombre','paterno','materno']);
+      $locations = Location::get(['id','clave','departamento','areaTrabajo']);
+      return view('devices.create',compact('device','oss','types','antivirus','models','householders','locations'));
     }
 
     /**
@@ -62,7 +75,28 @@ class DevicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $validator = Validator::make($request->all(),
+      [
+        '_token'=>'required',
+        'noSerie'=>'required',
+        'noInventario'=>'required',
+        'dirIp'=>'required',
+        'dirMac'=>'required',
+        'observaciones'=>'required',
+        'operative_system_id'=>'required',
+        'type_id'=>'required',
+        'antivirus_id'=>'required',
+        'model_device_id'=>'required',
+        'house_holder_id'=>'required',
+        'location_id'=>'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+      $device = Device::create($request->all());
+      return redirect('/device')->with('message', 'Dispositivo Guardado');
     }
 
     /**
