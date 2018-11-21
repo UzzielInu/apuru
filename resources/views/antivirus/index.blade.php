@@ -70,7 +70,7 @@ $(function() {
           text: '<i class="fas fa-file-excel fa-3x"></i>',
           extend: 'excelHtml5',
           fieldSeparator: '\t',
-          title : 'Antivurus.',
+          title : 'Antivirus.',
             exportOptions: {
               columns: [ 0, ':visible' ]
             }
@@ -79,7 +79,7 @@ $(function() {
           text: '<i class="fas fa-file-csv fa-3x"></i>',
           extend: 'csvHtml5',
           fieldSeparator: '\t',
-          title : 'Antivurus.',
+          title : 'Antivirus.',
           exportOptions: {
             columns: [ 0, ':visible' ]
           }
@@ -88,7 +88,7 @@ $(function() {
           text: '<i class="fas fa-file-pdf fa-3x"></i>',
           extend: 'pdfHtml5',
           fieldSeparator: '\t',
-          title : 'Antivurus.',
+          title : 'Antivirus.',
           exportOptions: {
             columns: [ 0, ':visible' ]
           }
@@ -97,7 +97,7 @@ $(function() {
           text: '<i class="fas fa-print fa-3x"></i>',
           extend: 'print',
           fieldSeparator: '\t',
-          title : 'Antivurus.',
+          title : 'Antivirus.',
           exportOptions: {
             columns: [ 0, ':visible' ]
           }
@@ -150,7 +150,4 @@ $(function() {
 });
  </script>
  {{-- DATATABLES --}}
-<script type="text/javascript">
-
-</script>
 @endsection
