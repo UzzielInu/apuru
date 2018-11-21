@@ -29,7 +29,7 @@
             <th scope="col">Ubicación</th>
             <th scope="col">Fecha creación</th>
             <th scope="col">Fecha actualización</th>
-            <th scope="col">Acciones</th>
+            <th scope="col" data-priority="1" class="title text-white">Acciones</th>
           </tr>
         </thead>
         {{-- <tbody>

@@ -44,7 +44,7 @@
             <th scope="col" class="title">Tipo</th>
             <th scope="col" class="title">Fecha creación</th>
             <th scope="col" class="title">Fecha actualización</th>
-            <th scope="col" class="title">Acciones</th>
+            <th scope="col" data-priority="1" class="title text-white">Acciones</th>
           </tr>
         </thead>
         {{-- <tbody>
