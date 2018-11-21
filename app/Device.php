@@ -15,7 +15,8 @@ class Device extends Model
                           'dirMac',
                           'observaciones',
                           'operative_system_id',
-                          'type_id','antivirus_id',
+                          'type_id',
+                          'antivirus_id',
                           'model_device_id',
                           'house_holder_id',
                           'location_id'
