@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-md navbar-dark navbar-laravel static-top" style="background-image: linear-gradient(to right,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1),rgba(0, 100, 157, 1),rgba(0, 100, 157, 1), rgba(102, 26, 143, 1));">
       <!-- <div class="container"> -->
         <a class="navbar-brand" href="{{ url('/') }}">
-            <strong>{{ config('app.name', 'INECOL') }}</strong>
+            <i class="fas fa-crow"></i><strong> {{ config('app.name', 'INECOL')}}</strong>
         </a>
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
           <i class="fas fa-arrows-alt-h"></i>
