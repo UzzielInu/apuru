@@ -57,10 +57,9 @@
             <th scope="col"  class="title">Categoría</th>
             <th scope="col"  class="title">descripcion</th>
             <th scope="col"  class="title">Tipo</th>
-
             <th scope="col">Fecha creación</th>
             <th scope="col">Fecha actualización</th>
-            <th scope="col">Acciones</th>
+            <th data-priority="1" scope="col" class="text-white">Acciones</th>
           </tr>
         </thead>
         {{-- <tbody>
@@ -180,8 +179,12 @@ $(function() {
           }
         })
       });
+      $('.dtbutton').on('click', function(){
+        console.log('clickeado');
+      });
     }
   });
+
 });
  </script>
  {{-- DATATABLES --}}
