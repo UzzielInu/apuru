@@ -105,7 +105,7 @@ class DevicesController extends Controller
      * @param  \App\Devices  $devices
      * @return \Illuminate\Http\Response
      */
-    public function show(Devices $devices)
+    public function show($id)
     {
         //
     }
@@ -116,9 +116,19 @@ class DevicesController extends Controller
      * @param  \App\Devices  $devices
      * @return \Illuminate\Http\Response
      */
-    public function edit(Devices $devices)
+    public function edit($id)
     {
-        //
+      $device = Device::find($id);
+      if($device == NULL){
+        return redirect('antivirus')->with('errors','El item no existe');
+      }
+      $oss = OperativeSystem::get(['id','nombre','version']);
+      $types = Type::get(['id','nombre']);
+      $antivirus = Antivirus::get(['id','nombre','version']);
+      $models = ModelDevice::get(['id','marca','modelo']);
+      $householders = HouseHolder::get(['id','nombre','paterno','materno']);
+      $locations = Location::get(['id','clave','departamento','areaTrabajo']);
+      return view('devices.edit',compact('device','oss','types','antivirus','models','householders','locations'));
     }
 
     /**
@@ -128,9 +138,32 @@ class DevicesController extends Controller
      * @param  \App\Devices  $devices
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Devices $devices)
+    public function update(Request $request, $id)
     {
-        //
+      $validator = Validator::make($request->all(),
+      [
+        '_token'=>'required',
+        'noSerie'=>'required',
+        'noInventario'=>'required',
+        'dirIp'=>'required',
+        'dirMac'=>'required',
+        'observaciones'=>'required',
+        'operative_system_id'=>'required',
+        'type_id'=>'required',
+        'antivirus_id'=>'required',
+        'model_device_id'=>'required',
+        'house_holder_id'=>'required',
+        'location_id'=>'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+
+      $device = Device::findOrFail($id);
+      $device->fill($request->all())->save();
+      return redirect('/device')->with('message', 'Dispositivo Editado!');
     }
 
     /**

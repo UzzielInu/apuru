@@ -72,7 +72,7 @@ class UserController extends Controller
 
   public function show($id)
   {
-      //
+
   }
 
   public function edit($id)
@@ -86,22 +86,21 @@ class UserController extends Controller
 
   public function update(Request $request, $id)
   {
-    // dd($request->all());
-    // $validator = Validator::make($request->all(),
-    // [
-    //   '_token' => 'required',
-    //   'nombre'  => 'required',
-    //   'version'   => 'required',
-    // ]);
-    //
-    // if ($validator->fails())
-    // {
-    //   return redirect()->back()->withErrors($validator->errors());
-    // }
-    //
-    // $os = OperativeSystem::findOrFail($id);
-    // $os->fill($request->all())->save();
-    // return redirect('/os')->with('message', 'Sistema Operativo Editado!');
+    $validator = Validator::make($request->all(),
+    [
+      '_token' => 'required',
+      'name'  => 'required',
+      'email'   => 'required',
+    ]);
+
+    if ($validator->fails())
+    {
+      return redirect()->back()->withErrors($validator->errors());
+    }
+
+    $user = User::findOrFail($id);
+    $user->fill($request->all())->save();
+    return redirect('/users')->with('message', 'Usuario Editado!');
   }
 
   public function destroy($id)
