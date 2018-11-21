@@ -24,4 +24,9 @@ class HouseHolder extends Model
     {
       return $this->belongsTo('App\Location');
     }
+
+    public function devices()
+      {
+          return $this->hasMany('App\Device');
+      }
 }

@@ -51,4 +51,8 @@ class Device extends Model
     {
       return $this->belongsTo('App\Ticket');
     }
+  public function householder()
+    {
+      return $this->belongsTo('App\HouseHolder', 'house_holder_id', 'id');
+    }
 }
