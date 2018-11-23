@@ -18,6 +18,7 @@ class CreateTicketsTable extends Migration
             $table->string('observaciones', 70);
             $table->string('prioridad', 25);
             $table->string('cliente', 20);
+            $table->string('estado', 15);
             $table->unsignedInteger('device_id');
             $table->foreign('device_id')->references('id')->on('devices');
             $table->unsignedInteger('service_id');

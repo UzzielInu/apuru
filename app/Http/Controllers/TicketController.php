@@ -22,7 +22,7 @@ class TicketController extends Controller
 
     public function getdata()
     {
-      $ticket = Ticket::with('device.os','device.type','device.antivirus','device.householder','device.modeldevice','device.location','service')->select('id','observaciones','prioridad','cliente','device_id','service_id','created_at','updated_at');
+      $ticket = Ticket::with('device.os','device.type','device.antivirus','device.householder','device.modeldevice','device.location','service')->select('id','observaciones','prioridad','cliente','estado','device_id','service_id','created_at','updated_at');
       //dd($ticket);
       return Datatables::of($ticket)
       ->addColumn('actions', function($ticket) {
