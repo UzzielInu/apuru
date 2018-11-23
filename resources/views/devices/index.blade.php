@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('content')
-{{-- DATATABLES --}}
-<link  href="{{asset('DataTables/datatables.css')}}" rel="stylesheet">
-<script src="{{asset('DataTables/datatables.min.js')}}"></script>
-{{-- DATATABLES --}}
-
+  {{-- DATATABLES --}}
+  <link  href="{{asset('DataTables/datatables.css')}}" rel="stylesheet">
+  <script src="{{asset('DataTables/datatables.min.js')}}"></script>
+  {{-- Style DT --}}
+  <link  href="{{asset('css/dataTableStyle.css')}}" rel="stylesheet">
+  {{-- _Style DT --}}
+  {{-- DATATABLES --}}
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
@@ -15,21 +17,21 @@
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}
       <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
-        <thead class="thead-dark">
+        <thead class="thead">
           <tr>
-            <th scope="col">No.Inventario</th>
-            <th scope="col">Dir. IP</th>
-            <th scope="col">Dir. Mac</th>
-            <th scope="col">Observaciones</th>
-            <th scope="col">Sistema operativo</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Antivirus</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Encargado</th>
-            <th scope="col">Ubicación</th>
-            <th scope="col">Fecha creación</th>
-            <th scope="col">Fecha actualización</th>
-            <th scope="col" data-priority="1" class="title text-white">Acciones</th>
+            <th scope="col "class="title">No.Inventario</th>
+            <th scope="col "class="title">Dir. IP</th>
+            <th scope="col "class="title">Dir. Mac</th>
+            <th scope="col "class="title">Observaciones</th>
+            <th scope="col "class="title">Sistema operativo</th>
+            <th scope="col "class="title">Tipo</th>
+            <th scope="col "class="title">Antivirus</th>
+            <th scope="col "class="title">Modelo</th>
+            <th scope="col "class="title">Encargado</th>
+            <th scope="col "class="title">Ubicación</th>
+            <th scope="col "class="title">Fecha creación</th>
+            <th scope="col "class="title">Fecha actualización</th>
+            <th scope="col "class="title" data-priority="1" class="title text-white">Acciones</th>
           </tr>
         </thead>
         {{-- <tbody>
@@ -115,8 +117,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(2)').css('background-color', 'rgba(189, 189, 189, 0.75)');
-        $(row).find('td:eq(3)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(10)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(11)').css('background-color', 'rgba(189, 189, 189, 0.75)');
     },
     "fnDrawCallback": function( oSettings ) {
       $('[data-toggle="tooltip"]').tooltip({

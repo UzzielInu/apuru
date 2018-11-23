@@ -3,29 +3,10 @@
 {{-- DATATABLES --}}
 <link  href="{{asset('DataTables/datatables.css')}}" rel="stylesheet">
 <script src="{{asset('DataTables/datatables.min.js')}}"></script>
-{{-- DATATABLES --}}
 {{-- Style DT --}}
-<style>
-   a.navtor:hover {
-     background-color: #8d8d8d;
-   }
-   table.dataTable tbody td {
-     vertical-align: middle;
-   }
-   .dataTables_processing{
-     background : rgba(56, 20, 103, 0.81) !important;
-     color : #FFFFFF !important;
-     z-index: 2;
-   }
-   .title{
-     color: white;
-   }
-   .thead{
-      background : rgba(56, 20, 103, 0.81)
-   }
- </style>
-
+<link  href="{{asset('css/dataTableStyle.css')}}" rel="stylesheet">
 {{-- _Style DT --}}
+{{-- DATATABLES --}}
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
@@ -158,8 +139,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(2)').css('background-color', 'rgba(189, 189, 189, 0.75)');
-        $(row).find('td:eq(3)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(16)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(17)').css('background-color', 'rgba(189, 189, 189, 0.75)');
     },
     "fnDrawCallback": function( oSettings ) {
       $('[data-toggle="tooltip"]').tooltip({
