@@ -3,29 +3,10 @@
 {{-- DATATABLES --}}
 <link  href="{{asset('DataTables/datatables.css')}}" rel="stylesheet">
 <script src="{{asset('DataTables/datatables.min.js')}}"></script>
-{{-- DATATABLES --}}
 {{-- Style DT --}}
-<style>
-   a.navtor:hover {
-     background-color: #8d8d8d;
-   }
-   table.dataTable tbody td {
-     vertical-align: middle;
-   }
-   .dataTables_processing{
-     background : rgba(56, 20, 103, 0.81) !important;
-     color : #FFFFFF !important;
-     z-index: 2;
-   }
-   .title{
-     color: white;
-   }
-   .thead{
-      background : rgba(56, 20, 103, 0.81)
-   }
- </style>
-
+<link  href="{{asset('css/dataTableStyle.css')}}" rel="stylesheet">
 {{-- _Style DT --}}
+{{-- DATATABLES --}}
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
@@ -38,25 +19,26 @@
       <table id="table" name="table" class="table table-hover display responsive no-wrap " width="100%">
         <thead class="thead">
           <tr>
-            <th scope="col"  class="title">Observaciones</th>
-            <th scope="col"  class="title">Prioridad</th>
             <th scope="col"  class="title">Cliente</th>
-            <th scope="col"  class="title">No.Inventario</th>
+            <th scope="col"  class="title">Tipo</th>
+            <th scope="col"  class="title">Categoría</th>
+            <th scope="col"  class="title">Descripcion</th>
+            <th scope="col"  class="title">Prioridad</th>
+            <th scope="col"  class="title">Estado</th>
+            <th scope="col"  class="title">Tipo de HW</th>
+            <th scope="col"  class="title">Modelo</th>
+            <th scope="col"  class="title">No.Serie</th>
             <th scope="col"  class="title">Dir. IP</th>
             <th scope="col"  class="title">Dir. Mac</th>
-            <th scope="col"  class="title">Observaciones</th>
             <th scope="col"  class="title">Sistema operativo</th>
-            <th scope="col"  class="title">Versión</th>
-            <th scope="col"  class="title">Tipo</th>
             <th scope="col"  class="title">Antivirus</th>
-            <th scope="col"  class="title">Versión</th>
-            <th scope="col"  class="title">Modelo</th>
-            <th scope="col"  class="title">Extensión</th>
+            <th scope="col"  class="title">Ubicación de Eqpo</th>
             <th scope="col"  class="title">Correo</th>
-            <th scope="col"  class="title">Ubicación</th>
-            <th scope="col"  class="title">Categoría</th>
-            <th scope="col"  class="title">descripcion</th>
-            <th scope="col"  class="title">Tipo</th>
+            <th scope="col"  class="title">Extensión</th>
+            {{-- <th scope="col"  class="title">Observaciones</th> --}}
+            {{-- <th scope="col"  class="title">Versión</th> --}}
+            {{-- <th scope="col"  class="title">Versión</th> --}}
+            {{-- <th scope="col"  class="title">descripcion</th> --}}
             <th scope="col">Fecha creación</th>
             <th scope="col">Fecha actualización</th>
             <th scope="col" data-priority="1" class="text-white">Acciones</th>
@@ -127,25 +109,27 @@ $(function() {
     ],
     ajax: '{{ url('/getticket') }}',
     columns: [
+      { data: 'cliente',                        name: 'cliente'        },
+      { data: 'service.tipo'       ,            name: 'service.tipo'        },
+      { data: 'service.nombre',                 name: 'service.nombre' },
       { data: 'observaciones',                  name: 'observaciones'  },
       { data: 'prioridad',                      name: 'prioridad'      },
-      { data: 'cliente',                        name: 'cliente'        },
+      { data: 'estado',                         name: 'estado'      },
+      { data: 'device.type.nombre',             name: 'device.type.nombre'              },
+      { data: 'device.modeldevice.marca',       name: 'device.modeldevice.marca'      },
       { data: 'device.noSerie',                 name: 'device.noSerie'              },
       { data: 'device.dirIp',                   name: 'device.dirIp'                },
       { data: 'device.dirMac',                  name: 'device.dirMac'               },
-      { data: 'device.observaciones',           name: 'device.observaciones'        },
       { data: 'device.os.nombre',               name: 'device.os.nombre'  },
-      { data: 'device.os.version',              name: 'device.os.version'  },
-      { data: 'device.type.nombre',             name: 'device.type.nombre'              },
       { data: 'device.antivirus.nombre',        name: 'device.antivirus.nombre'         },
-      { data: 'device.antivirus.version',       name: 'device.antivirus.version'         },
-      { data: 'device.modeldevice.marca',       name: 'device.modeldevice.marca'      },
+      { data: 'device.location.clave',          name: 'device.location.clave'          },
       { data: 'device.householder.correo',      name: 'device.householder.correo'      },
       { data: 'device.householder.extension',   name: 'device.householder.extension'      },
-      { data: 'device.location.clave',          name: 'device.location.clave'          },
-      { data: 'service.nombre',                 name: 'service.nombre' },
-      { data: 'service.descripcion',            name: 'service.descripcion' },
-      { data: 'service.tipo'       ,            name: 'service.tipo'        },
+      // { data: 'device.observaciones',           name: 'device.observaciones'        },
+      // { data: 'device.os.version',              name: 'device.os.version'  },
+      // { data: 'device.antivirus.version',       name: 'device.antivirus.version'         },
+      // { data: 'service.descripcion',            name: 'service.descripcion' },
+
       { data: 'created_at',     name: 'created_at'     },
       { data: 'updated_at',     name: 'updated_at'     },
       { data: 'actions',        name: 'actions'        },
@@ -155,8 +139,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(2)').css('background-color', 'rgba(189, 189, 189, 0.75)');
-        $(row).find('td:eq(3)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(16)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(17)').css('background-color', 'rgba(189, 189, 189, 0.75)');
     },
     "fnDrawCallback": function( oSettings ) {
       $('[data-toggle="tooltip"]').tooltip({

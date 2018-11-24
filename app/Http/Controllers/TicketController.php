@@ -22,7 +22,7 @@ class TicketController extends Controller
 
     public function getdata()
     {
-      $ticket = Ticket::with('device.os','device.type','device.antivirus','device.householder','device.modeldevice','device.location','service')->select('id','observaciones','prioridad','cliente','device_id','service_id','created_at','updated_at');
+      $ticket = Ticket::with('device.os','device.type','device.antivirus','device.householder','device.modeldevice','device.location','service')->select('id','observaciones','prioridad','cliente','estado','device_id','service_id','created_at','updated_at');
       //dd($ticket);
       return Datatables::of($ticket)
       ->addColumn('actions', function($ticket) {
@@ -32,6 +32,8 @@ class TicketController extends Controller
           <i class="fas fa-bars fa-lg"></i>
           </button>
             <div class="dropdown-menu">
+                <a href="'.route('ticket.show', $ticket->id).'" role="button" class="dropdown-item"><i class="fas fa-plus-circle    fa-fw fa-lg text-success"></i></i></i> Detalles </a>
+                <div class="dropdown-divider my-1"></div>
                 <a href="'.route('ticket.edit', $ticket->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
                 <div class="dropdown-divider my-1"></div>
                 <form id="del'.$ticket->id.'" action="'.action('TicketController@destroy', ['id' => $ticket->id]).'" method="POST">

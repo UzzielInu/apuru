@@ -36,9 +36,11 @@ class HouseHolderController extends Controller
          return '
           <div class="btn-group dropleft" data-toggle="tooltip" data-placement="top" title="Acciones">
              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             <i class="fas fa-bars fa-lg"></i>
+             <i class="fas fa-bars fa-fw fa-lg"></i>
              </button>
              <div class="dropdown-menu">
+                 <a href="'.route('householder.show', $householder->id).'" role="button" class="dropdown-item"><i class="fas fa-plus-circle fa-fw fa-lg text-success"></i></i></i> Detalles </a>
+                 <div class="dropdown-divider my-1"></div>
                  <a href="'.route('householder.edit', $householder->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
                <div class="dropdown-divider my-1"></div>
                <form id="del'.$householder->id.'" action="'.action('HouseHolderController@destroy', ['id' => $householder->id]).'" method="POST">

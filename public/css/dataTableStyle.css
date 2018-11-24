@@ -1,0 +1,19 @@
+<style>
+   a.navtor:hover {
+     background-color: #8d8d8d;
+   }
+   table.dataTable tbody td {
+     vertical-align: middle;
+   }
+   .dataTables_processing{
+     background : rgba(56, 20, 103, 0.81) !important;
+     color : #FFFFFF !important;
+     z-index: 2;
+   }
+   .title{
+     color: white;
+   }
+   .thead{
+      background : rgba(56, 20, 103, 0.81)
+   }
+ </style>

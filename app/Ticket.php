@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Ticket extends Model
 {
   use SoftDeletes;
-  
+
   protected $table = 'tickets';
   protected $guarded  = ['id'];
-  protected $fillable = ['observaciones','prioridad','cliente','device_id','service_id','created_at','upupdated_at'];
+  protected $fillable = ['observaciones','prioridad','cliente','estado','device_id','service_id','created_at','upupdated_at'];
   protected $dates = ['deleted_at'];
 
   public function device()
