@@ -33,9 +33,9 @@ class DevicesController extends Controller
       return Datatables::of($device)
       ->addColumn('actions', function($device) {
         return '
-          <div class="btn-group dropleft">
-            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Acciones
+          <div class="btn-group dropleft" data-toggle="tooltip" data-placement="top" title="Acciones">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bars fa-lg"></i>
             </button>
             <div class="dropdown-menu">
                 <a href="'.route('device.edit', $device->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
@@ -43,7 +43,7 @@ class DevicesController extends Controller
               <form action="'.action('DevicesController@destroy', ['id' => $device->id]).'" method="POST">
                 <input name="_token" type="hidden" value="'.csrf_token().'">
                 <input name="_method" type="hidden" value="DELETE">
-                <button type="submit" class="dropdown-item"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
+                <button type="button" class="dropdown-item dtbutton"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
               </form>
             </div>
           </div>';

@@ -70,7 +70,7 @@ $(function() {
     dom: "<'row mx-auto'<'col-md-12 mx-auto'B>>"+"<'row text-center'<'col-md-6 text-left'l><'col-md-6'f>>" + 'rt'+"<'row text-center'<'col-md-6 text-left'i><'col-md-6'p>>",
       buttons: [
         {//excel
-          text: '<i class="fas fa-file-excel fa-3x"></i>',
+          text: '<i class="fas fa-file-excel fa-3x" data-toggle="tooltip" data-placement="top" title="Excel"></i>',
           extend: 'excelHtml5',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -79,7 +79,7 @@ $(function() {
             }
         },
         {//csv
-          text: '<i class="fas fa-file-csv fa-3x"></i>',
+          text: '<i class="fas fa-file-csv fa-3x" data-toggle="tooltip" data-placement="top" title="CSV"></i>',
           extend: 'csvHtml5',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -88,7 +88,7 @@ $(function() {
           }
         },
         {//pdfHtml5
-          text: '<i class="fas fa-file-pdf fa-3x"></i>',
+          text: '<i class="fas fa-file-pdf fa-3x" data-toggle="tooltip" data-placement="top" title="PDF"></i>',
           extend: 'pdfHtml5',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -97,7 +97,7 @@ $(function() {
           }
         },
         {//Print
-          text: '<i class="fas fa-print fa-3x"></i>',
+          text: '<i class="fas fa-print fa-3x" data-toggle="tooltip" data-placement="top" title="Imprimir"></i>',
           extend: 'print',
           fieldSeparator: '\t',
           title : 'Ubicacion',
@@ -106,7 +106,7 @@ $(function() {
           }
         },
         {//ColumnVisual
-          text: '<i class="fas fa-columns fa-3x"></i>',
+          text: '<i class="fas fa-columns fa-3x" data-toggle="tooltip" data-placement="top" title="Mostrar/Ocultar columnas"></i>',
           extend: 'colvis',
           fieldSeparator: '\t',
           title : 'Columnas',
@@ -136,10 +136,9 @@ $(function() {
          trigger : 'hover',
       });
       $( ".dtbutton" ).click(function() {
-        console.log('holis');
         swal({
            title: '¿Está Seguro?',
-           text: "El registro de borrará",
+           text: "El registro se borrará",
            type: 'warning',
            showCancelButton: true,
            confirmButtonColor: '#810000',

@@ -8,13 +8,17 @@
     </div>
     {!! Form::model($modeldevice, ['action' => 'ModelDeviceController@store']) !!}
     <div class="card-body">
-      <div class="row justify-content-center my-2">
-        <label for="marca">Marca </label>
-        <input type="text" id="marca" name="marca" value="" class="form-control text-center" placeholder="Marca del Dispositivo">
+      <div class="form-group row justify-content-center my-5">
+        <label for="marca" class="col-sm-2 col-form-label">Marca</label>
+        <div class="col-sm-10">
+          <input type="text" id="marca" name="marca" value="" class="form-control text-center" placeholder="Ejemplo: Dell">
+        </div>
       </div>
-      <div class="row justify-content-center my-2">
-        <label for="modelo">Modelo </label>
-        <input type="text" id="modelo" name="modelo" value="" class="form-control text-center" placeholder="Modelo del Dispositivo">
+      <div class="form-group row justify-content-center my-5">
+        <label for="modelo" class="col-sm-2 col-form-label">Modelo</label>
+        <div class="col-sm-10">
+          <input type="text" id="modelo" name="modelo" value="" class="form-control text-center" placeholder="Ejemplo: Optiplex">
+        </div>
       </div>
       <div class="row justify-content-center mt-4">
         <button type="submit" name="button" class="btn btn-success btn-block col-md-3"><i class="fas fa-save fa-fw fa-lg"></i> Guardar</button>

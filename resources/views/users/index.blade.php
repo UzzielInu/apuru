@@ -69,7 +69,7 @@ $(function() {
           extend: 'excelHtml5',
           fieldSeparator: '\t',
           titleAttr: '',
-          title : 'Sistema operativo',
+          title : 'Usuarios',
             exportOptions: {
               columns: [ 0, ':visible' ]
             }
@@ -78,7 +78,7 @@ $(function() {
           text: '<i class="fas fa-file-csv fa-3x" data-toggle="tooltip" data-placement="top" title="CSV"></i>',
           extend: 'csvHtml5',
           fieldSeparator: '\t',
-          title : 'Sistema operativo',
+          title : 'Usuarios',
           exportOptions: {
             columns: [ 0, ':visible' ]
           }
@@ -96,7 +96,7 @@ $(function() {
           text: '<i class="fas fa-print fa-3x" data-toggle="tooltip" data-placement="top" title="Imprimir"></i>',
           extend: 'print',
           fieldSeparator: '\t',
-          title : 'Sistema operativo',
+          title : 'Usuarios',
           exportOptions: {
             columns: [ 0, ':visible' ]
           }
@@ -123,8 +123,29 @@ $(function() {
     "rowCallback": function(row, data, index){
         $(row).find('td:eq(3)').css('background-color', 'rgba(189, 189, 189, 0.75)');
         $(row).find('td:eq(4)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+    },
+    "fnDrawCallback": function( oSettings ) {
+      $('[data-toggle="tooltip"]').tooltip({
+        trigger : 'hover',
+      });
+      $(".dtbutton").click(function() {
+        swal({
+          title: '¿Está Seguro?',
+          text: "El registro se borrará",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#810000',
+          cancelButtonColor: '#363636',
+          confirmButtonText: 'Borrar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {//after confirn, do the submit
+            var sw = $(this).parent().attr('id');
+            $('#'+sw).submit();
+          }
+        })
+      });
     }
-
   });
 });
 

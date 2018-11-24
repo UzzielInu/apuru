@@ -8,13 +8,17 @@
     </div>
     {!! Form::model($os, ['action' => 'OperativeSystemController@store']) !!}
     <div class="card-body">
-      <div class="row justify-content-center my-2">
-        <label for="nombre">Nombre SO</label>
-        <input type="text" id="nombre" name="nombre" value="" class="form-control text-center" placeholder="Sistema Operativo">
+      <div class="form-group row justify-content-center my-5">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre SO</label>
+        <div class="col-sm-10">
+          <input type="text" id="nombre" name="nombre" value="" class="form-control text-center" placeholder="Ejemplo: Windows">
+        </div>
       </div>
-      <div class="row justify-content-center my-2">
-        <label for="version">Versión SO</label>
-        <input type="text" id="version" name="version" value="" class="form-control text-center" placeholder="Versión de Sistema Operativo">
+      <div class="form-group row justify-content-center my-5">
+        <label for="version" class="col-sm-2 col-form-label">Versión SO</label>
+        <div class="col-sm-10">
+          <input type="text" id="version" name="version" value="" class="form-control text-center" placeholder="Ejemplo: 10">
+        </div>
       </div>
       <div class="row justify-content-center mt-4">
         <button type="submit" name="button" class="btn btn-success btn-block col-md-3"><i class="fas fa-save fa-fw fa-lg"></i> Guardar</button>
