@@ -122,12 +122,12 @@ $(function() {
       { data: 'dirIp',                   name: 'dirIp'                },
       { data: 'dirMAc',                  name: 'dirMAc'               },
       { data: 'observaciones',           name: 'observaciones'        },
-      { data: 'operative_system_id',     name: 'operative_system_id'  },
-      { data: 'type_id',                 name: 'type_id'              },
-      { data: 'antivirus_id',            name: 'antivirus_id'         },
-      { data: 'model_device_id',         name: 'model_device_id'      },
-      { data: 'house_holder_id',         name: 'house_holder_id'      },
-      { data: 'location_id',             name: 'location_id'          },
+      { data: 'os.nombre',               name: 'operative_system_id'  },
+      { data: 'type.nombre',                 name: 'type_id'              },
+      { data: 'antivirus.nombre',        name: 'antivirus_id'         },
+      { data: 'model_device.marca',     name: 'model_device_id'      },
+      { data: 'householder.nombre',         name: 'house_holder_id'      },
+      { data: 'location.clave',             name: 'location_id'          },
       { data: 'created_at',              name: 'created_at'           },
       { data: 'updated_at',              name: 'updated_at'           },
       { data: 'actions',                 name: 'actions'              },
@@ -136,8 +136,8 @@ $(function() {
       "url": "{{asset('DataTables/spanish.json')}}"
     },
     "rowCallback": function(row, data, index){
-        $(row).find('td:eq(2)').css('background-color', 'rgba(189, 189, 189, 0.75)');
-        $(row).find('td:eq(3)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(10)').css('background-color', 'rgba(189, 189, 189, 0.75)');
+        $(row).find('td:eq(11)').css('background-color', 'rgba(189, 189, 189, 0.75)');
     },
     "fnDrawCallback": function( oSettings ) {
       $('[data-toggle="tooltip"]').tooltip({

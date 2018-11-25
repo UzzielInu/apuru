@@ -30,9 +30,9 @@
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
-      <h3 class="float-left">Encargado ?</h3>
+      <h3 class="float-left">Encargado</h3>
 
-      <a href="{{url('')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar Encargado ?</a>
+      <a href="{{url('')}}" role="button" name="button" class="btn btn-success col-md-3 float-right">Registrar Encargado</a>
     </div>
     <div class="card-body">
       {{-- <h5 class="card-title">Tabla con datatables</h5> --}}

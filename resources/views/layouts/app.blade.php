@@ -114,7 +114,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url('ticket')}}">
-            <i class="fas fa-clipboard-list fa-lg"></i>
+            <i class="fas fa-ticket-alt fa-lg"></i>
             <span>Tickets</span></a>
         </li>
         <li class="nav-item dropdown">
@@ -133,7 +133,7 @@
                   <a class="nav-link px-3" href="{{url('modeldevice')}}"><i class="fas fa-microchip fa-lg"></i> Modelo</a>
               </li>
               <li class="text-center">
-                  <a class="nav-link px-3" href="{{url('os')}}"><i class="fab fa-steam fa-lg"></i> Sist.Op</a>
+                  <a class="nav-link px-3" href="{{url('os')}}"><i class="fas fa-hdd fa-lg"></i> Sist.Op</a>
               </li>
               <li class="text-center">
                   <a class="nav-link px-3" href="{{url('service')}}"><i class="fas fa-toolbox fa-lg"></i> Servicio</a>

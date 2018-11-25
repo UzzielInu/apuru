@@ -43,6 +43,7 @@ class HomeController extends Controller
       $ticket = Ticket::count();
       $type = Type::count();
       $user = User::count();
+      
       // dd($antivirus);
       return view('home', compact('antivirus','device','houseHolder','location','modelDevice','operativeSystem','service','ticket','type','user'));
     }

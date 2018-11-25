@@ -5,17 +5,17 @@
   <!-- Icon Cards-->
   <div class="row">
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-white bg-success">
+      <div class="card text-white bg-danger o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-comments"></i>
+            <i class="fas fa-fw fa-ticket-alt"></i>
           </div>
-          <div class="mr-5">{{$antivirus}} Antivirus</div>
+          <div class="mr-5">{{$ticket}} Tickets  </div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
-            <i class="fas fa-angle-right fa-2x"></i>
+            <i class="fas fa-angle-right"></i>
           </span>
         </a>
       </div>
@@ -24,7 +24,7 @@
       <div class="card text-white bg-primary o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-list"></i>
+            <i class="fas fa-fw fa-desktop"></i>
           </div>
           <div class="mr-5">{{$device}} Dispositivos</div>
         </div>
@@ -40,9 +40,9 @@
       <div class="card text-white o-hidden h-100" style="background:rgb(25, 37, 187)">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-shopping-cart"></i>
+            <i class="fas fa-fw fa-user-tie"></i>
           </div>
-          <div class="mr-5">{{$houseHolder}} Responsables</div>
+          <div class="mr-5">{{$houseHolder}} Encargados</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">Ver detalles</span>
@@ -53,10 +53,42 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white bg-success o-hidden h-100">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-fw fa-users"></i>
+          </div>
+          <div class="mr-5">{{$user}} Usuarios</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">Ver detalles</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+      <div class="card text-white bg-success">
+        <div class="card-body">
+          <div class="card-body-icon">
+            <i class="fas fa-fw fa-shield-alt"></i>
+          </div>
+          <div class="mr-5">{{$antivirus}} Antivirus</div>
+        </div>
+        <a class="card-footer text-white clearfix small z-1" href="#">
+          <span class="float-left">Ver detalles</span>
+          <span class="float-right">
+            <i class="fas fa-angle-right fa-2x"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
       <div class="card text-white o-hidden h-100" style="background:rgb(103, 3, 164)">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-life-ring"></i>
+            <i class="fas fa-fw fa-building"></i>
           </div>
           <div class="mr-5">{{$location}} Ubicaciones</div>
         </div>
@@ -72,7 +104,7 @@
       <div class="card text-white bg-success o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-life-ring"></i>
+            <i class="fas fa-fw fa-microchip"></i>
           </div>
           <div class="mr-5">{{$modelDevice}} Modelos</div>
         </div>
@@ -88,7 +120,7 @@
       <div class="card text-white bg-primary o-hidden h-100">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-life-ring"></i>
+            <i class="fas fa-fw fa-hdd"></i>
           </div>
           <div class="mr-5">{{$operativeSystem}} Sistemas Operativos</div>
         </div>
@@ -104,7 +136,7 @@
       <div class="card text-white o-hidden h-100" style="background:rgb(25, 37, 187)">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-life-ring"></i>
+            <i class="fas fa-fw fa-toolbox"></i>
           </div>
           <div class="mr-5">{{$service}} Servicios</div>
         </div>
@@ -117,28 +149,12 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-white bg-danger o-hidden h-100">
+      <div class="card text-white o-hidden h-100 bg-dark">
         <div class="card-body">
           <div class="card-body-icon">
-            <i class="fas fa-fw fa-life-ring"></i>
+            <i class="fas fa-fw fa-memory"></i>
           </div>
-          <div class="mr-5">{{$ticket}} Tickets  </div>
-        </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
-          <span class="float-left">Ver detalles</span>
-          <span class="float-right">
-            <i class="fas fa-angle-right"></i>
-          </span>
-        </a>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-white bg-success o-hidden h-100">
-        <div class="card-body">
-          <div class="card-body-icon">
-            <i class="fas fa-fw fa-life-ring"></i>
-          </div>
-          <div class="mr-5">{{$user}} Usuarios</div>
+          <div class="mr-5">{{$type}} Hardware</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <span class="float-left">Ver detalles</span>
