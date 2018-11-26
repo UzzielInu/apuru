@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\HouseHolder;
+use App\Location;
 use Illuminate\Http\Request;
 use Validator;
 use Session;
@@ -30,7 +31,6 @@ class HouseHolderController extends Controller
        $householder = HouseHolder::with(array('location'=>function($query){
                       $query->select('id','clave');
                       }))->select('id','nombre','paterno','materno','extension','correo','location_id','created_at','updated_at');
-       //dd($householder);
        return Datatables::of($householder)
        ->addColumn('actions', function($householder) {
          return '
@@ -56,7 +56,9 @@ class HouseHolderController extends Controller
 
     public function create()
     {
-        //
+      $householder = new HouseHolder;
+      $locations = Location::all();
+      return view('householder.create', compact('householder', 'locations'));
     }
 
     /**
@@ -67,7 +69,20 @@ class HouseHolderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $validator = Validator::make($request->all(),
+      [
+        '_token' => 'required',
+        'nombre'  => 'required',
+        'paterno'   => 'required',
+        'materno'   => 'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+      $householder = HouseHolder::create($request->all());
+      return redirect('/householder')->with('message', 'Encargado Guardado');
     }
 
     /**
@@ -91,9 +106,14 @@ class HouseHolderController extends Controller
      * @param  \App\HouseHolder  $houseHolder
      * @return \Illuminate\Http\Response
      */
-    public function edit(HouseHolder $houseHolder)
+    public function edit($id)
     {
-        //
+      $householder = HouseHolder::find($id);
+      if($householder == NULL){
+        return redirect('householder')->with('errors','El item no existe');
+      }
+      $locations = Location::get(['id','clave','departamento','areaTrabajo']);
+      return view('householder.edit', compact('householder','locations'));
     }
 
     /**
@@ -103,9 +123,26 @@ class HouseHolderController extends Controller
      * @param  \App\HouseHolder  $houseHolder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HouseHolder $houseHolder)
+    public function update(Request $request, $id)
     {
-        //
+      $validator = Validator::make($request->all(),
+      [
+        '_token'=>'required',
+        'nombre'=>'required',
+        'paterno'=>'required',
+        'materno'=>'required',
+        'extension'=>'required',
+        'correo'=>'required',
+        'location_id'=>'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+      $householder = HouseHolder::findOrFail($id);
+      $householder->fill($request->all())->save();
+      return redirect('/householder')->with('message', 'Encargado Editado!');
     }
 
     /**
