@@ -28,7 +28,15 @@ class DevicesController extends Controller
 
     public function getdata()
     {
-      $device = Device::select('id','noSerie','noInventario','dirIp','dirMAc','observaciones','operative_system_id','type_id','antivirus_id','model_device_id','house_holder_id','location_id','created_at','updated_at');
+
+      $device = Device::with([
+        'antivirus'=> function($query) { $query->select('id','nombre','version');},
+        'os'=> function($query) { $query->select('id','nombre','version');},
+        'type'=> function($query) { $query->select('id','nombre');},
+        'modelDevice'=> function($query) { $query->select('id','marca','modelo');},
+        'location'=> function($query) { $query->select('id','clave');},
+        'householder'=> function($query) { $query->select('id','nombre','paterno','materno');},
+      ])->select('id','noSerie','noInventario','dirIp','dirMAc','observaciones','operative_system_id','type_id','antivirus_id','model_device_id','house_holder_id','location_id','created_at','updated_at');
       //dd($device);
       return Datatables::of($device)
       ->addColumn('actions', function($device) {
