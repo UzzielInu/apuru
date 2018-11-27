@@ -15,6 +15,8 @@ Route::get('/', function () {
     return redirect('login');
 });
 Route::get('/home', 'HomeController@index')->name('home.index');
+Route::get('/test', 'HomeController@test')->name('home.test');
+
 Route::get('/getos', 'OperativeSystemController@getdata')->name('os.getdata');
 
 Route::resource('/os', 'OperativeSystemController');
@@ -44,7 +46,4 @@ Route::resource('/device', 'DevicesController');
 
 Route::get('/getticket','TicketController@getdata')->name('ticket.getdata');
 Route::resource('/ticket', 'TicketController');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Auth::routes();
