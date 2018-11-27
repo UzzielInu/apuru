@@ -119,7 +119,7 @@ class DevicesController extends Controller
       if($device == NULL){
         return redirect('device')->with('errors','El item no existe');
       }
-      return view('device.show', compact('device'));
+      return view('devices.show', compact('device'));
     }
 
     /**
