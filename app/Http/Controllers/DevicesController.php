@@ -107,7 +107,11 @@ class DevicesController extends Controller
      */
     public function show($id)
     {
-        //
+      $device = Device::find($id);
+      if($device == NULL){
+        return redirect('device')->with('errors','El item no existe');
+      }
+      return view('device.show', compact('device'));
     }
 
     /**
