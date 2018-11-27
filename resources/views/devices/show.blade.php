@@ -21,7 +21,7 @@
       </div>
       <div class="form-group row col-md-12 mx-0">
         <label for="created" class="col-md-3 col-form-label">Modelo</label>
-        <input type="text" id="created" name="created" class="form-control col-md-9 text-center" value="{{$device->modelDevice->marca}} , {{$device->modelDevice->modelo}}" readonly>
+        <input type="text" id="created" name="created" class="form-control col-md-9 text-center" value="{{$device->modelDevice->marca}} {{$device->modelDevice->modelo}}" readonly>
       </div>
       <div class="form-group row col-md-12 mx-0">
         <label for="email" class="col-md-3 col-form-label">Dirección Ip</label>
