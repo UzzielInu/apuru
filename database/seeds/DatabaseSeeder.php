@@ -27,5 +27,7 @@ class DatabaseSeeder extends Seeder
       $this->command->info('Role have been created!');
       $this->call('UserTableSeeder');
       $this->command->info('User have been created!');
+      $this->call('HouseHolderSeeder');
+      $this->command->info('HouseHolder have been created!');
     }
 }
