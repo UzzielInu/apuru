@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use App\Device;
+use App\service;
 use Illuminate\Http\Request;
 use Validator;
 use Session;
@@ -54,7 +56,10 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+      $ticket = new Ticket;
+      $services = Service::all();
+      $devices = Device::all();
+      return view('tickets.create', compact('ticket', 'services','devices'));
     }
 
     /**
@@ -65,7 +70,21 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $validator = Validator::make($request->all(),
+      [
+        '_token'=>'required',
+        'cliente'=>'required',
+        'prioridad'=>'required',
+        'estado'=>'required',
+        'observaciones'=>'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+      $ticket = Ticket::create($request->all());
+      return redirect('/ticket')->with('message', 'Ticket Guardado');
     }
 
     /**
@@ -89,9 +108,15 @@ class TicketController extends Controller
      * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ticket $ticket)
+    public function edit($id)
     {
-        //
+        $ticket = Ticket::find($id);
+        if($ticket == NULL){
+          return redirect('ticket')->with('errors','El item no existe');
+        }
+        $devices  = Device::get(['id','noserie','type_id']);
+        $services = Service::get(['id','nombre','tipo']);
+        return view ('tickets.edit',compact('ticket','devices','services'));
     }
 
     /**
@@ -101,9 +126,26 @@ class TicketController extends Controller
      * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ticket $ticket)
+    public function update(Request $request,$id)
     {
-        //
+      $validator = Validator::make($request->all(),
+      [
+        '_token'=>'required',
+        'cliente'=>'required',
+        'prioridad'=>'required',
+        'estado'=>'required',
+        'observaciones'=>'required',
+        'device_id'=>'required',
+        'service_id'=>'required',
+      ]);
+
+      if ($validator->fails())
+      {
+        return redirect()->back()->withErrors($validator->errors());
+      }
+      $ticket = Ticket::findOrFail($id);
+      $ticket->fill($request->all())->save();
+      return redirect('/ticket')->with('message', 'Ticket Editado!');
     }
 
     /**

@@ -7,7 +7,7 @@
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
-      <h3 class="float-left">Registrar Encargado Nuevo</h3>
+      <h3 class="float-left">Editar Encargado </h3>
       <a href="{{ url('householder')}}" role="button" name="button" class="btn btn-success col-md-2 float-right"><i class="fas fa-chevron-left fa-fw fa-lg"></i> Regresar</a>
     </div>
     {!! Form::model($householder, ['action' => ['HouseHolderController@update', $householder->id], 'method' => 'PUT']) !!}

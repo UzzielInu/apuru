@@ -20,24 +20,24 @@
         <input type="text" id="cliente" name="cliente" class="form-control col-md-9 text-center" value="{{$ticket->cliente}}" readonly>
       </div>
       <div class="form-group row col-md-12 mx-0 md-0">
-        <label for="o" class="col-md-3 col-form-label col-mb-0">Dispositivo </label>
         <input type="text" id="noserie" name="noserie" class="form-control col-md-9 offset-3 text-center" value="No. Serie: {{$ticket->device->noSerie}}" readonly>
         <input type="text" id="noinventario" name="noinventario" class="form-control col-md-9 offset-3 text-center" value="No. Inventario: {{$ticket->device->noInventario}}" readonly>
         <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Direccion IP: {{$ticket->device->dirIp}}" readonly>
         <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Direccion MAC: {{$ticket->device->dirMac}}" readonly>
-        {{-- <input type="text" id="location2" name="location" class="form-control col-md-9 offset-3 text-center" value="Edificio : {{$ticket->location->edificio}}" readonly>
-        <label for="location" class="col-md-3 col-form-label">Ubicación </label><input type="text" id="location" name="location" class="form-control col-md-9 text-center" value="Departamento : {{$ticket->location->departamento}}" readonly>
-        <input type="text" id="location" name="location" class="form-control col-md-9 offset-3 text-center" value="Nivel : {{$ticket->location->nivel}}" readonly>
-        <input type="text" id="location3" name="location" class="form-control col-md-9 offset-3 text-center" value="Área : {{$ticket->location->areaTrabajo}}" readonly>
-      </div>
-      <div class="form-group row col-md-12 mx-0">
-        <label for="created" class="col-md-3 col-form-label">Fecha registro </label>
-        <input type="text" id="created" name="created" class="form-control col-md-9 text-center" value="{{$ticket->created_at}}" readonly>
-      </div>
-      <div class="form-group row col-md-12 mx-0">
-        <label for="updated" class="col-md-3 col-form-label">Última actualización</label>
-        <input type="text" id="updated" name="updated" class="form-control col-md-9 text-center" value="{{$ticket->updated_at}}" readonly> --}}
-      </div>
+        <label for="device" class="col-md-3 col-form-label">Dispositivo </label>
+        <input type="text" id="device1" name="device" class="form-control col-md-9  text-center" value="Observaciones: {{$ticket->device->observaciones}}" readonly>
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Sistema operativo: {{$ticket->device->os->nombre}} {{$ticket->device->os->version}}" readonly>
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value=" Tipo: {{$ticket->device->type->nombre}} " readonly>
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Antivirus : {{$ticket->device->antivirus->nombre}} {{$ticket->device->antivirus->version}}" readonly>
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Modelo : {{$ticket->device->modeldevice->marca}} {{$ticket->device->modeldevice->modelo}}" readonly>
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value=" Ubicación: {{$ticket->device->location->clave.' -> '.$ticket->device->location->departamento.' ['.$ticket->device->location->areaTrabajo.']'}} " readonly>
+        </div>
+        <div class="form-group row col-md-12 mx-0 md-0">
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Encargado : {{$ticket->device->householder->nombre.' '.$ticket->device->householder->paterno.' '.$ticket->device->householder->materno}}" readonly>
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Correo : {{$ticket->device->householder->correo}}" readonly>  <label for="o" class="col-md-3 col-form-label col-mb-0">Encargado</label>
+        <input type="text" id="device1" name="device" class="form-control col-md-9  text-center" value="Extension : {{$ticket->device->householder->extension}}" readonly>
+        <input type="text" id="device1" name="device" class="form-control col-md-9 offset-3 text-center" value="Ubicación : {{$ticket->device->householder->location->clave.' -> '.$ticket->device->householder->location->departamento.' ['.$ticket->device->householder->location->areaTrabajo.']' }}" readonly>
+        </div>
   </div>
     <div class="card-footer text-muted">
       INECOL - 2018

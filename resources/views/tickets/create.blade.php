@@ -7,10 +7,10 @@
 <div class="container-fluid">
   <div class="card text-center">
     <div class="card-header">
-      <h3 class="float-left">Editar ticket</h3>
+      <h3 class="float-left">Registrar Ticket Nuevo</h3>
       <a href="{{ url('ticket')}}" role="button" name="button" class="btn btn-success col-md-2 float-right"><i class="fas fa-chevron-left fa-fw fa-lg"></i> Regresar</a>
     </div>
-    {!! Form::model($ticket, ['action' => ['TicketController@update', $ticket->id], 'method' => 'PUT']) !!}
+    {!! Form::model($ticket, ['action' => 'TicketController@store']) !!}
     <div class="card-body">
       <div class="form-group row justify-content-center my-3">
         <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
-        <label for="prioridad" class="col-sm-2 col-form-label">Priorida</label>
+        <label for="prioridad" class="col-sm-2 col-form-label">Prioridad</label>
         <div class="col-sm-10">
           <input type="text" id="prioridad" name="prioridad" value="{{$ticket->prioridad}}" class="form-control text-center">
         </div>
@@ -36,7 +36,7 @@
           <select id="device_id" class="form-control col-sm-12" name="device_id" style="width: 100%">
             <option value="">Dispositivo</option>
             @foreach ($devices as $item)
-              <option value="{{$item->id}}" @if ($item->id == $ticket->device->id) selected @endif>{{$item->noserie}} ->{{$item->type->nombre}} </option>
+              <option value="{{$item->id}}"> {{$item->noSerie}} -> {{$item->type->nombre}} </option>
             @endforeach
           </select>
          </div>
@@ -47,20 +47,18 @@
             <select id="service_id" class="form-control col-sm-12" name="service_id" style="width: 100%">
               <option value="">Servicio</option>
               @foreach ($services as $item)
-                <option value="{{$item->id}}" @if ($item->id == $ticket->service->id) selected @endif>{{$item->nombre}} -> {{$item->tipo}}</option>
+                <option value="{{$item->id}}"> {{$item->nombre}} -> {{$item->tipo}}</option>
               @endforeach
             </select>
            </div>
+        </div>
+        <div class="form-group row justify-content-center my-3">
+          <label for="observaciones" class="col-sm-2 col-form-label">Observaciones</label>
+          <div class="col-sm-10  text-center">
+            <textarea name="observaciones" rows="5" cols="80" class="form-control">{{$ticket->observaciones}}</textarea>
           </div>
-          <div class="form-group row justify-content-center my-3">
-            <label for="observaciones" class="col-sm-2 col-form-label">Observaciones</label>
-            <div class="col-sm-10  text-center">
-              <textarea name="observaciones" rows="5" cols="80" class="form-control">{{$ticket->observaciones}}</textarea>
-            </div>
-          </div>
+        </div>
     </div>
-      </div>
-
       <div class="row justify-content-center my-4">
         <button type="submit" name="button" class="btn btn-success btn-block col-md-3"><i class="fas fa-save fa-fw fa-lg"></i> Guardar</button>
       </div>
