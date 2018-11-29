@@ -9,7 +9,7 @@ class Location extends Model
 {
   use SoftDeletes;
 
-  protected $table    = 'Locations';
+  protected $table    = 'locations';
   protected $guarded  = ['id'];
   protected $fillable = ['campus','edificio','departamento','nivel','areaTrabajo','clave'];
   protected $dates = ['deleted_at'];

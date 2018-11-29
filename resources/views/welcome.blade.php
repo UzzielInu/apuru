@@ -42,17 +42,17 @@
     transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     }
     .blocks__block:nth-child(1) {
-    background: rgba(63, 16, 88, 0.9);
+    background: rgba(103, 56, 138, 0.9);
     -webkit-transform-origin: 0% 100%;
             transform-origin: 0% 100%;
     }
     .blocks__block:nth-child(2) {
-    background: rgba(14, 67, 98, 0.9);
+    background: rgba(37, 79, 142, 0.9);
     -webkit-transform-origin: 50% 100%;
             transform-origin: 50% 100%;
     }
     .blocks__block:nth-child(3) {
-    background: rgba(13, 92, 50, 0.9);
+    background: rgba(29, 150, 85, 0.9);
     -webkit-transform-origin: 100% 100%;
             transform-origin: 100% 100%;
     }
@@ -89,7 +89,7 @@
     text-align: center;
     -webkit-transform: scale(0.9);
             transform: scale(0.9);
-    transition: all 0.3s 0.2s ease-out;
+    transition: all 0.2s 0.2s ease-out;
     }
     .blocks-content__content.active {
     opacity: 1;
@@ -98,9 +98,9 @@
     visibility: visible;
     }
     .blocks-content .blocks__content-close {
-    position: absolute;
-    right: 2vw;
-    top: 2vh;
+    position: relative;
+    right: 0;
+    top: 30%;
     font-size: 30px;
     cursor: pointer;
     transition: all 0.2s ease-out;
@@ -118,7 +118,7 @@
     padding: 15px 30px;
     font-weight: 300;
     letter-spacing: 6px;
-    box-shadow: inset 0 0 0 3px #000;
+    /* box-shadow: inset 0 0 0 3px #000; */
     }
     .blocks-names {
     position: fixed;
@@ -152,7 +152,7 @@
     flex-flow: column wrap;
     justify-content: center;
     background-color: #174449;
-    background-image: linear-gradient(to right, rgb(102, 26, 143) ,rgba(0, 100, 157, 1), rgba(0, 150, 69, 0.76));
+    background-image: radial-gradient(circle,rgba(0, 150, 69, 1) , rgba(24, 72, 143, 1) , rgb(103, 35, 154)  );
     }
     main h1 {
     margin: 0;
@@ -183,22 +183,60 @@
             transform: translate(-50%, -50%);
     z-index: -1;
     }
+    .block_button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+    .block_button1 {
+      background-color: white;
+      color: black;
+      border: 2px solid #8622c3;
+    }
+    .block_button1:hover {
+      background-color: #8622c3;
+      color: white;
+    }
+    .block_button2 {
+      background-color: white;
+      color: black;
+      border: 2px solid #4CAF50;
+    }
+    .block_button2:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .block_button3 {
+      background-color: white;
+      color: black;
+      border: 2px solid #4CAF50;
+    }
+    .block_button3:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
   </style>
 
   <html>
     <body>
       <!-- Demo stuff-->
       <main>
-        {{-- <h1><a href="http://ettrics.com/">Ettrics</a></h1>
-        <p>A Material Design inspired expanding overlay for showcasing a variety of content.</p>
-        <p><a href="https://twitter.com/ettrics/" target="_blank"><i class="fab fa-twitter"></i></a></p> --}}
-        <img class="plate img-fluid" src="{{asset('img/inecol.png')}}" alt="INECOL">
+        <img class="plate img-fluid" src="{{asset('img/shiro.png')}}" alt="INECOL">
       </main>
       <!-- Component starts here-->
-      <ul class="blocks-names col-sm-12">
-        <li class="blocks__name text-white col-sm-4">Tickets</li>
-        <li class="blocks__name text-white col-sm-4">Dispositivos</li>
-        <li class="blocks__name text-white col-sm-4">Encargados</li>
+      <ul class="blocks-names">
+        <li class="blocks__name text-white btn">Tickets</li>
+        <li class="blocks__name text-white btn">Dispositivos</li>
+        <li class="blocks__name text-white btn">Encargados</li>
       </ul>
       <ul class="blocks">
         <li class="blocks__block" id="1"></li>
@@ -208,12 +246,19 @@
       <ul class="blocks-content">
         <li class="blocks-content__content text-white">
           <div class="content__close"></div>
-          <h2 class="">Tickets</h2>
-          <div class="row ">
-            <button type="button" name="button" class="btn btn-lg btn-light rounded-circle"><i class="fas fa-plus fa-lg"></i></button>
-            <button type="button" name="button" class="btn btn-lg btn-light rounded-circle"><i class="fas fa-list"></i></button>
+          <h1 class="fixed-top mt-5">Tickets</h1>
+          <div class="container row justify-content-center">
+            <a role="button" name="button" class="btn btn-lg block_button block_button1 text-dark col-sm-4">
+              <i class="fas fa-plus fa-5x"></i>
+            </a>
+            <div class="col-sm-2"></div>
+            <a role="button" name="button" class="btn btn-lg block_button block_button1 text-dark col-sm-4">
+              <i class="fas fa-list fa-5x icon"></i>
+            </a>
           </div>
-          <i class="blocks__content-close fas fa-times"></i>
+          <button type="button" name="button" class="blocks__content-close btn btn-outline-light py-0">
+            <i class="fas fa-times"></i>
+          </button>
         </li>
         <li class="blocks-content__content text-white">
           <h2>Dispositivos</h2>
@@ -258,8 +303,8 @@ expand = function() {
 openContent = function(num) {
   var aContent;
   content.css({
-    'transition': 'all 0.3s 0.4s ease-out',
-    '-webkit-transition': 'all 0.3s 0.4s ease-out'
+    'transition': 'all 0.1s 0.1s ease-out',
+    '-webkit-transition': 'all 0.1s 0.1s ease-out'
   });
   aContent = content.eq(num);
   aContent.addClass('active');
@@ -268,8 +313,8 @@ openContent = function(num) {
 closeContent = function() {
   bname.css('opacity', '1');
   content.css({
-    'transition': 'all 0.1s 0 ease-out',
-    '-webkit-transition': 'all 0.1s 0 ease-out'
+    'transition': 'all 0.1s 0.1s ease-out',
+    '-webkit-transition': 'all 0.1s 0.1s ease-out'
   });
   block.css({
     'transform': 'scale(1)',
