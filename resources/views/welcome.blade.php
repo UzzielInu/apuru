@@ -142,6 +142,15 @@
     align-items: center;
     justify-content: center;
     }
+    .blocks__name:nth-child(1):hover {
+      background-color: rgba(162, 76, 161, 1);
+    }
+    .blocks__name:nth-child(2):hover {
+      background-color: rgba(60, 137, 180, 1);
+    }
+    .blocks__name:nth-child(3):hover {
+      background-color: rgba(43, 191, 93, 1);
+    }
     /* Demo */
     main {
     position: relative;
@@ -184,7 +193,7 @@
     z-index: -1;
     }
     .block_button {
-    background-color: #4CAF50; /* Green */
+    background-color: #525154; /* Green */
     border: none;
     color: white;
     padding: 16px 32px;
@@ -198,8 +207,8 @@
     cursor: pointer;
     }
     .block_button1 {
-      background-color: white;
-      color: black;
+      background-color: #72187d;
+      color: white;
       border: 2px solid #8622c3;
     }
     .block_button1:hover {
@@ -207,21 +216,21 @@
       color: white;
     }
     .block_button2 {
-      background-color: white;
-      color: black;
-      border: 2px solid #4CAF50;
+      background-color: #183862;
+      color: white;
+      border: 2px solid #2e62a7;
     }
     .block_button2:hover {
-      background-color: #4CAF50;
+      background-color: #2e62a7;
       color: white;
     }
     .block_button3 {
-      background-color: white;
-      color: black;
-      border: 2px solid #4CAF50;
+      background-color: #166122;
+      color: white;
+      border: 2px solid #0d7911;
     }
     .block_button3:hover {
-      background-color: #4CAF50;
+      background-color: #099a0e;
       color: white;
     }
   </style>
@@ -234,9 +243,9 @@
       </main>
       <!-- Component starts here-->
       <ul class="blocks-names">
-        <li class="blocks__name text-white btn">Tickets</li>
-        <li class="blocks__name text-white btn">Dispositivos</li>
-        <li class="blocks__name text-white btn">Encargados</li>
+        <li class="blocks__name text-white">Tickets</li>
+        <li class="blocks__name text-white">Dispositivos</li>
+        <li class="blocks__name text-white">Encargados</li>
       </ul>
       <ul class="blocks">
         <li class="blocks__block" id="1"></li>
@@ -245,28 +254,28 @@
       </ul>
       <ul class="blocks-content">
         <li class="blocks-content__content text-white">
-          <div class="content__close"></div>
-          <h1 class="fixed-top mt-5">Tickets</h1>
-          <div class="container row justify-content-center">
-            <a role="button" name="button" class="btn btn-lg block_button block_button1 text-dark col-sm-4">
-              <i class="fas fa-plus fa-5x"></i>
-            </a>
-            <div class="col-sm-2"></div>
-            <a role="button" name="button" class="btn btn-lg block_button block_button1 text-dark col-sm-4">
-              <i class="fas fa-list fa-5x icon"></i>
-            </a>
+          <h2>Tickets</h2>
+          <div class="container">
+            <a href="{{url('/ticket/create')}}" role="button" class="btn block_button1 mx-4"><i class="fas fa-plus-circle fa-5x"></i><br>Agregar</a>
+            <a href="{{url('/ticket')}}" role="button" class="btn block_button1 mx-4"><i class="fas fa-eye fa-5x"></i><br>Ver</a>
           </div>
-          <button type="button" name="button" class="blocks__content-close btn btn-outline-light py-0">
-            <i class="fas fa-times"></i>
-          </button>
+          <i class="blocks__content-close fas fa-times-circle"></i>
         </li>
         <li class="blocks-content__content text-white">
           <h2>Dispositivos</h2>
-          <p>BOTONES!</p><i class="blocks__content-close fas fa-times"></i>
+          <div class="container">
+            <a href="{{url('/device/create')}}" role="button" class="btn block_button2 mx-4"><i class="fas fa-plus-circle fa-5x"></i><br>Agregar</a>
+            <a href="{{url('/device')}}" role="button" class="btn block_button2 mx-4"><i class="fas fa-eye fa-5x"></i><br>Ver</a>
+          </div>
+          <i class="blocks__content-close fas fa-times-circle"></i>
         </li>
         <li class="blocks-content__content text-white">
           <h2>Encargados</h2>
-          <p>BOTONES!</p><i class="blocks__content-close fas fa-times"></i>
+          <div class="container">
+            <a href="{{url('/householder/create')}}" role="button" class="btn block_button3 mx-4"><i class="fas fa-plus-circle fa-5x"></i><br>Agregar</a>
+            <a href="{{url('/householder')}}" role="button" class="btn block_button3 mx-4"><i class="fas fa-eye fa-5x"></i><br>Ver</a>
+          </div>
+          <i class="blocks__content-close fas fa-times-circle"></i>
         </li>
       </ul>
     </body>
