@@ -174,7 +174,7 @@
       <div class="card-body">
         <canvas id="myBarChart" width="100%" height="50"></canvas>
       </div>
-      <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div class="card-footer small text-muted">Ultima actualización hoy a las 7:00 am</div>
     </div>
 
     <!-- Area Chart Example-->
@@ -185,7 +185,7 @@
       <div class="card-body">
         <canvas id="myPieChart" width="100%" height="50"></canvas>
       </div>
-      <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div class="card-footer small text-muted">Ultima actualización hoy a las 7:00 am</div>
     </div>
   </div>
 
@@ -206,7 +206,7 @@ var myLineChart = new Chart(ctx, {
       label: "Usuarios",
       backgroundColor:  ['#007bff', '#dc3545', '#ffc107', '#28a745', 'rgb(175, 146, 103)', 'rgb(192, 12, 205)', 'rgb(6, 40, 162)'],
       borderColor: "rgba(2,117,216,1)",
-      data: [1, 5, 6, 9, 2, 3, 12],
+      data: [{{$data}}],
     }],
   },
   options: {

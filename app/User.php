@@ -30,15 +30,18 @@ class User extends Authenticatable
 
     public function roles()
     {
-      return $this
-        ->belongsToMany('App\Role')
-        ->withTimestamps();
+      return $this->belongsToMany('App\Role')->withTimestamps();
     }
 
     public function lastLogin()
     {
       //to convert into mexican date...
       return $this->last_login;
+    }
+
+    public function loginLogs()
+    {
+      return $this->hasMany('App\Login_log');
     }
 
     public function authorizeRoles($roles)

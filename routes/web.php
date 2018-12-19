@@ -46,4 +46,7 @@ Route::resource('/device', 'DevicesController');
 
 Route::get('/getticket','TicketController@getdata')->name('ticket.getdata');
 Route::resource('/ticket', 'TicketController');
+
+Route::get('/logs/getlogin', 'LoginLogController@getlogin')->name('logs.getlogin');
+Route::resource('/logs/login', 'LoginLogController');
 Auth::routes();

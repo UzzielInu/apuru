@@ -13,7 +13,8 @@ use App\Service;
 use App\Ticket;
 use App\Type;
 use App\User;
-
+use App\Login_log;
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -43,9 +44,18 @@ class HomeController extends Controller
       $ticket = Ticket::count();
       $type = Type::count();
       $user = User::count();
-
+      $today = Carbon::now();
+      $domingo = 1;
+      $lunes = 1;
+      $martes = 1;
+      $miercoles = 1;
+      $jueves = 1;
+      $viernes = 1;
+      $sabado = Login_log::where('created_at','like', $today->format('Y-m-d').'%')->get()->unique('user_id');
+      dd($today->format('Y-m-d'), $sabado);
+      $data = '1,5,6,9,2,3,12';
       // dd($antivirus);
-      return view('home', compact('antivirus','device','houseHolder','location','modelDevice','operativeSystem','service','ticket','type','user'));
+      return view('home', compact('antivirus','device','houseHolder','location','modelDevice','operativeSystem','service','ticket','type','user','data'));
     }
 
     public function test()
