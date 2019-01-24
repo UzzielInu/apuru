@@ -52,7 +52,7 @@ class HomeController extends Controller
       $jueves = 1;
       $viernes = 1;
       $sabado = Login_log::where('created_at','like', $today->format('Y-m-d').'%')->get()->unique('user_id');
-      dd($today->format('Y-m-d'), $sabado);
+      // dd($today->format('Y-m-d'), $sabado);
       $data = '1,5,6,9,2,3,12';
       // dd($antivirus);
       return view('home', compact('antivirus','device','houseHolder','location','modelDevice','operativeSystem','service','ticket','type','user','data'));
