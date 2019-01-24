@@ -91,6 +91,7 @@
       <!-- Star SIDEBAR -->
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled" style="background-image: linear-gradient(to bottom,rgba(12, 139, 13, 1) ,rgba(0, 100, 157, 1),rgba(0, 100, 157, 1),rgba(0, 100, 157, 1), rgb(102, 26, 143));">
+      @if(Auth()->user()->hasRole('Admin'))
         <li class="nav-item active">
           <a class="nav-link" href="{{url('home')}}">
             <i class="fas fa-chalkboard-teacher fa-lg"></i>
@@ -102,6 +103,7 @@
             <i class="fas fa-users fa-lg"></i>
             <span>Usuarios</span></a>
         </li>
+      @endif
         <li class="nav-item">
           <a class="nav-link" href="{{url('device')}}">
             <i class="fas fas fa-desktop fa-lg"></i>
