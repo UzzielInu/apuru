@@ -47,12 +47,12 @@ class LocationSeeder extends Seeder
       $location->areaTrabajo = 'Cubículo';
       $location->clave = 'I-A-PB';
       $location->save();
-      //Campus I Edificio A Segundo piso
+      //Campus I Edificio A Primer piso
       $location= new Location;
       $location->campus = 'I';
       $location->edificio = 'A';
-      $location->departamento = 'Red de Biodiversidad Y Sistemática';
-      $location->nivel = 'Segundo piso';
+      $location->departamento = 'Red de Biodiversidad y Sistemática';
+      $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
       $location->clave = 'I-A-SP';
       $location->save();
@@ -180,7 +180,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Ecoetología';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-P1';
+      $location->clave = 'I-C-P1';
       $location->save();
       //Campus I Edificio C Segundo piso
       $location= new Location;
@@ -189,7 +189,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Biología Evolutiva';
       $location->nivel = 'Segundo piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'I-C-PB';
       $location->save();
       //Campus I Edificio D Planta baja
       $location= new Location;
@@ -198,7 +198,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Manejo Biotecnológico de Recursos';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'I-D-PB';
       $location->save();
       //Campus I Edificio E Primer piso
       $location= new Location;
@@ -207,7 +207,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Secretaría Posgrados';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'I-E-P1';
       $location->save();
       //Campus II Edificio F Planta baja
       $location= new Location;
@@ -216,7 +216,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Secretaría Técnica';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-F-PB';
       $location->save();
       //Campus II Edificio F Planta baja
       $location= new Location;
@@ -225,7 +225,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Secretaría Técnica';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Laboratorio';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-F-PB';
       $location->save();
       //Campus II Edificio F Planta baja
       $location= new Location;
@@ -234,7 +234,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Ecología Funcional';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-F-PB';
       $location->save();
       //Campus II Edificio F Primer piso
       $location= new Location;
@@ -243,7 +243,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Ecología Funcional';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-F-P1';
       $location->save();
       //Campus II Edificio F Primer piso
       $location= new Location;
@@ -252,7 +252,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Interacciones Multitróficas';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-F-P1';
       $location->save();
       //Campus II Edificio F Segundo piso
       $location= new Location;
@@ -261,7 +261,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Ambiente y Sustentabilidad';
       $location->nivel = 'Segundo piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-F-P2';
       $location->save();
       //Campus II Edificio F segundo piso
       $location= new Location;
@@ -270,7 +270,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Ecología Funcional';
       $location->nivel = 'segundo piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-F-P2';
       $location->save();
       //Campus II Edificio G Primer piso
       $location= new Location;
@@ -279,7 +279,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Ambiente y Sustentabilidad';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-G-P1';
       $location->save();
       //Campus II Edificio G Primer piso
       $location= new Location;
@@ -288,7 +288,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Ecología Funcional';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'II-G-P1';
       $location->save();
       //Campus III Edificio A Planta baja
       $location= new Location;
@@ -297,7 +297,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Dirección General';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-A-PB';
       $location->save();
       //Campus III Edificio A Planta baja
       $location= new Location;
@@ -306,7 +306,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Laboratorio de Catación de Café';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-A-PB';
       $location->save();
       //Campus III Edificio A Primer piso
       $location= new Location;
@@ -315,7 +315,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Dirección General';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-A-P1';
       $location->save();
       //Campus III Edificio B Planta baja
       $location= new Location;
@@ -324,7 +324,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Estudios Moleculares Avanzados';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-B-PB';
       $location->save();
       //Campus III Edificio B Planta baja
       $location= new Location;
@@ -333,7 +333,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Estudios Moleculares Avanzados';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Laboratorio';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-B-PB';
       $location->save();
       //Campus III Edificio B Primer piso
       $location= new Location;
@@ -342,7 +342,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Secretaría Técnica';
       $location->nivel = 'Primer piso';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-B-P1';
       $location->save();
       //Campus III Edificio C Planta baja
       $location= new Location;
@@ -351,7 +351,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Manejo Biorracional de Plagas y Vectores';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-C-PB';
       $location->save();
       //Campus III Edificio C Planta baja
       $location= new Location;
@@ -360,7 +360,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Manejo Biotecnológico de Recursos';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-C-PB';
       $location->save();
       //Campus III Edificio D Planta baja
       $location= new Location;
@@ -369,7 +369,7 @@ class LocationSeeder extends Seeder
       $location->departamento = 'Red de Manejo Biorracional de Plagas y Vectores';
       $location->nivel = 'Planta baja';
       $location->areaTrabajo = 'Cubículo';
-      $location->clave = 'I-A-PB';
+      $location->clave = 'III-D-PB';
       $location->save();
     }
 }
