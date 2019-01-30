@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/test';
 
     /**
      * Create a new controller instance.
@@ -50,7 +50,15 @@ class LoginController extends Controller
         $user->loginLogs->type = 'LOGIN';
         $user->loginLogs->save();
 
-        return redirect('/home')->with('errors','ESTE ES TU PRIMER LOGIN, cambia tu contraseña');
+        if($user->roles()->count()>1){
+          return redirect('/selectRol');
+        }else{
+          if(Auth::user()->hasRole('admin')){
+            return redirect('/home');
+          }else{
+            return redirect('/test');
+          }
+        }
       }
       else{
         $user->last_login = Carbon\Carbon::now()->toDateTimeString();
@@ -61,7 +69,15 @@ class LoginController extends Controller
         $loginLogs->type = 'LOGIN';
         $loginLogs->save();
 
-        return redirect('/home');
+        if($user->roles()->count()>1){
+          return redirect('/selectRol');
+        }else{
+          if(Auth::user()->hasRole('admin')){
+            return redirect('/home');
+          }else{
+            return redirect('/test');
+          }
+        }
       }
     }
 

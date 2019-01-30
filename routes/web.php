@@ -44,4 +44,6 @@ Route::group(['middleware' => ['auth', 'role:user' OR 'role:admin']], function()
   Route::resource('/device', 'DevicesController');
   Route::get('/getticket','TicketController@getdata')->name('ticket.getdata');
   Route::resource('/ticket', 'TicketController');
+  Route::get('/selectRol', 'UserController@selectRol')->name('user.selectRol');
+  Route::post('/validateRol/{role}', 'UserController@validateRol')->name('user.validate');  
 });

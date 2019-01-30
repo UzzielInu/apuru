@@ -64,7 +64,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="{{url('/selectRol')}}">
                     <i class="fas fa-exchange-alt fa-fw fa-lg text-dark"></i> Cambiar sesión</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-power-off fa-fw fa-lg text-danger"></i> Cerrar Sesión</a>

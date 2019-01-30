@@ -113,4 +113,26 @@ class UserController extends Controller
     // }
     return redirect('/users')->with('message', 'Work in progress');
   }
+
+  public function selectRol()
+  {
+    return view('users.selectRol');
+  }
+
+  public function validateRol($role)
+  {
+      $rol = Role::where('name',$role)->get();
+      if($rol->isEmpty()){
+        abort(404, "el rol no existe");
+      }else{
+        if($role == 'admin'){
+          session(['role' => 'admin']);
+          return redirect('/home');
+        }else{
+          session(['role' => 'user']);
+          return redirect('/test');
+        }
+      }
+    //->with('errors','ESTE ES TU PRIMER LOGIN, cambia tu contraseña')
+  }
 }
