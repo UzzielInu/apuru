@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function() {
   Route::resource('/logs/login', 'LoginLogController');
 });
 //routes for users
-Route::group(['middleware' => ['auth', 'role:user']], function() {
+Route::group(['middleware' => ['auth', 'role:user' OR 'role:admin']], function() {
   Route::get('/test', 'HomeController@test')->name('home.test');
   Route::get('/getos', 'OperativeSystemController@getdata')->name('os.getdata');
   Route::resource('/os', 'OperativeSystemController');
