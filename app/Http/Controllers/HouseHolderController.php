@@ -72,9 +72,10 @@ class HouseHolderController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'nombre'  => 'required',
-        'paterno'   => 'required',
-        'materno'   => 'required',
+        'nombre'  => 'required|max:25',
+        'paterno'   => 'required|max:20',
+        'materno'   => 'required|max:20',
+        'extension' => 'max:4',
       ]);
 
       if ($validator->fails())
@@ -128,10 +129,10 @@ class HouseHolderController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'=>'required',
-        'nombre'=>'required',
-        'paterno'=>'required',
-        'materno'=>'required',
-        'extension'=>'required',
+        'nombre'  => 'required|max:25',
+        'paterno'   => 'required|max:20',
+        'materno'   => 'required|max:20',
+        'extension' => 'max:4',
         'correo'=>'required',
         'location_id'=>'required',
       ]);
@@ -151,8 +152,10 @@ class HouseHolderController extends Controller
      * @param  \App\HouseHolder  $houseHolder
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+     */
+    public function destroy(Request $request,$id)
     {
+        $request->user()->authorizeRoles(['admin']);
         $householder = HouseHolder::find($id);
         try {
           $householder->delete();

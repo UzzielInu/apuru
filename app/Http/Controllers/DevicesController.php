@@ -88,11 +88,11 @@ class DevicesController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'=>'required',
-        'noSerie'=>'required',
-        'noInventario'=>'required',
-        'dirIp'=>'required',
-        'dirMac'=>'required',
-        'observaciones'=>'required',
+        'noSerie'=>'required|max:25',
+        'noInventario'=>'required|max:10',
+        'dirIp'=>'required|max:16',
+        'dirMac'=>'required|max:18',
+        'observaciones'=>'required|max:70',
         'operative_system_id'=>'required',
         'type_id'=>'required',
         'antivirus_id'=>'required',
@@ -157,11 +157,11 @@ class DevicesController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'=>'required',
-        'noSerie'=>'required',
-        'noInventario'=>'required',
-        'dirIp'=>'required',
-        'dirMac'=>'required',
-        'observaciones'=>'required',
+        'noSerie'=>'required|max:25',
+        'noInventario'=>'required|max:10',
+        'dirIp'=>'required|max:16',
+        'dirMac'=>'required|max:18',
+        'observaciones'=>'required|max:70',
         'operative_system_id'=>'required',
         'type_id'=>'required',
         'antivirus_id'=>'required',
@@ -186,8 +186,9 @@ class DevicesController extends Controller
      * @param  \App\Devices  $devices
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+      $request->user()->authorizeRoles(['admin']);
       $device = Device::find($id);
       try {
         $device->delete();

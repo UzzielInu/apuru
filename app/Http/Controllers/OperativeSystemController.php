@@ -69,8 +69,8 @@ class OperativeSystemController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'  => 'required',
-        'nombre'  => 'required',
-        'version' => 'required',
+        'nombre'  => 'required|max:15',
+        'version' => 'required|max:25',
       ]);
 
       if ($validator->fails())
@@ -120,8 +120,8 @@ class OperativeSystemController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'nombre'  => 'required',
-        'version'   => 'required',
+        'nombre'  => 'required:max15',
+        'version'   => 'required|max:25',
       ]);
 
       if ($validator->fails())

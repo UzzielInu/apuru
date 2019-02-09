@@ -70,8 +70,8 @@ class ModelDeviceController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'marca'  => 'required',
-        'modelo'  => 'required',
+        'marca'  => 'required|max:20',
+        'modelo'  => 'required|max:25',
       ]);
 
       if ($validator->fails())
@@ -121,8 +121,8 @@ class ModelDeviceController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'marca'  => 'required',
-        'modelo'  => 'required',
+        'marca'  => 'required|max:20',
+        'modelo'  => 'required,max:25',
       ]);
 
       if ($validator->fails())
@@ -141,8 +141,9 @@ class ModelDeviceController extends Controller
      * @param  \App\ModelDevice  $modelDevice
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+      $request->user()->authorizeRoles(['admin']);
       $modeldevice = ModelDevice::find($id);
       try {
         $modeldevice->delete();

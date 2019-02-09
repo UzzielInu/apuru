@@ -66,8 +66,8 @@ class ServiceController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'nombre'  => 'required',
-        'descripcion'   => 'required',
+        'nombre'  => 'required|max:50',
+        'descripcion'   => 'required:max:70',
         'tipo'   => 'required',
       ]);
 
@@ -140,8 +140,9 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+      $request->user()->authorizeRoles(['admin']);
       $service = Service::find($id);
       try {
         $service->delete();
