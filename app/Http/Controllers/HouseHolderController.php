@@ -152,7 +152,6 @@ class HouseHolderController extends Controller
      * @param  \App\HouseHolder  $houseHolder
      * @return \Illuminate\Http\Response
      */
-     */
     public function destroy(Request $request,$id)
     {
         $request->user()->authorizeRoles(['admin']);
