@@ -52,10 +52,14 @@ class HomeController extends Controller
       $jueves = 1;
       $viernes = 1;
       $sabado = Login_log::where('created_at','like', $today->format('Y-m-d').'%')->get()->unique('user_id');
+      $baja = Ticket::where('prioridad','baja')->count();
+      $media = Ticket::where('prioridad','media')->count();
+      $alta = Ticket::where('prioridad','alta')->count();
+      
       // dd($today->format('Y-m-d'), $sabado);
       $data = '1,5,6,9,2,3,12';
       // dd($antivirus);
-      return view('home', compact('antivirus','device','houseHolder','location','modelDevice','operativeSystem','service','ticket','type','user','data'));
+      return view('home', compact('antivirus','device','houseHolder','location','modelDevice','operativeSystem','service','ticket','type','user','baja','media','alta','data'));
     }
 
     public function test()
