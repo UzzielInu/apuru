@@ -73,10 +73,10 @@ class TicketController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'=>'required',
-        'cliente'=>'required',
-        'prioridad'=>'required',
-        'estado'=>'required',
-        'observaciones'=>'required',
+        'cliente'=>'required|max:20',
+        'prioridad'=>'required|max:25',
+        'estado'=>'required|max:15',
+        'observaciones'=>'required|max:70',
       ]);
 
       if ($validator->fails())
@@ -131,10 +131,10 @@ class TicketController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'=>'required',
-        'cliente'=>'required',
-        'prioridad'=>'required',
-        'estado'=>'required',
-        'observaciones'=>'required',
+        'cliente'=>'required|max:20',
+        'prioridad'=>'required|max:25',
+        'estado'=>'required|max:15',
+        'observaciones'=>'required|max:70',
         'device_id'=>'required',
         'service_id'=>'required',
       ]);
@@ -154,8 +154,9 @@ class TicketController extends Controller
      * @param  \App\Ticket  $ticket
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+        $request->user()->authorizeRoles(['admin']);
         $ticket = Ticket::find($id);
         try {
           $ticket->delete();

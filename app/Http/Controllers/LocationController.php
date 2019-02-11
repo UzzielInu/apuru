@@ -67,12 +67,12 @@ class LocationController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'campus'  => 'required',
-        'edificio'   => 'required',
-        'departamento'   => 'required',
-        'nivel'   => 'required',
-        'areaTrabajo'   => 'required',
-        'clave'   => 'required',
+        'campus'  => 'required|max:5',
+        'edificio'   => 'required|max:2',
+        'departamento'   => 'required|max:50',
+        'nivel'   => 'required|max:20',
+        'areaTrabajo'   => 'required|max:25',
+        'clave'   => 'required|max:15',
       ]);
 
       if ($validator->fails())
@@ -123,11 +123,11 @@ class LocationController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'campus'  => 'required',
-        'edificio'   => 'required',
-        'departamento'   => 'required',
-        'nivel'   => 'required',
-        'areaTrabajo'   => 'required',
+        'campus'  => 'required|max:5',
+        'edificio'   => 'required|max:2',
+        'departamento'   => 'required|max:50',
+        'nivel'   => 'required|max:20',
+        'areaTrabajo'   => 'required|max:25',
       ]);
 
       if ($validator->fails())
@@ -146,8 +146,9 @@ class LocationController extends Controller
      * @param  \App\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+      $request->user()->authorizeRoles(['admin']);
       $location = Location::find($id);
       try {
         $location->delete();
