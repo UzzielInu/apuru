@@ -11,13 +11,13 @@
       <div class="form-group row justify-content-center my-5">
         <label for="nombre" class="col-sm-2 col-form-label">Nombre Antivirus</label>
         <div class="col-sm-10">
-          <input type="text" id="nombre" name="nombre" value="" class="form-control text-center" placeholder="Ejemplo: Kaspersky">
+          <input type="text" id="nombre" name="nombre" value="" class="form-control text-center" placeholder="Ejemplo: Kaspersky" required pattern="[a-zA-Z]{3,25}" maxlength="25" autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-5">
         <label for="version" class="col-sm-2 col-form-label">Versión Antivirus</label>
         <div class="col-sm-10">
-          <input type="text" id="version" name="version" value="" class="form-control text-center" placeholder="Ejemplo: Internet Security 2020">
+          <input type="text" id="version" name="version" value="" class="form-control text-center" placeholder="Ejemplo: Internet Security 2020" required pattern="[a-zA-Z]{3,50}" maxlength="50" autofocus autocomplete="off">
         </div>
       </div>
       <div class="row justify-content-center my-5">

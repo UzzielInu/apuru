@@ -45,6 +45,9 @@ class HomeController extends Controller
       $type = Type::count();
       $user = User::count();
       $today = Carbon::now();
+      $weekMap = [0 => 'SU',1 => 'MO',2 => 'TU',3 => 'WE',4 => 'TH',5 => 'FR',6 => 'SA',];
+      $dayOfTheWeek = Carbon::now()->dayOfWeek;
+      $weekday = $weekMap[$dayOfTheWeek];
       $domingo = 1;
       $lunes = 1;
       $martes = 1;
@@ -55,7 +58,7 @@ class HomeController extends Controller
       $baja = Ticket::where('prioridad','baja')->count();
       $media = Ticket::where('prioridad','media')->count();
       $alta = Ticket::where('prioridad','alta')->count();
-      
+
       // dd($today->format('Y-m-d'), $sabado);
       $data = '1,5,6,9,2,3,12';
       // dd($antivirus);

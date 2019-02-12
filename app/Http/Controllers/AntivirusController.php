@@ -67,7 +67,7 @@ class AntivirusController extends Controller
         $validator = Validator::make($request->all(),
         [
           '_token' => 'required',
-          'nombre'  => 'required|max:25',
+          'nombre'  => array( 'required', 'regex:/(^([a-zA-Z]+)(\d+)?$)/u' ),
           'version'   => 'required|max:50',
         ]);
 

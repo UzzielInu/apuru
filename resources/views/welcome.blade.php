@@ -239,6 +239,7 @@
     <body>
       <!-- Demo stuff-->
       <main>
+        <button type="button" name="button" class="btn btn-danger rounded-circle px-2 position-fixed" style="top:5%;right:5%;"><i class="fas fa-times-circle fa-lg"></i></i></button>
         <img class="plate img-fluid" src="{{asset('img/shiro.png')}}" alt="INECOL">
       </main>
       <!-- Component starts here-->
