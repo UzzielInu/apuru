@@ -12,7 +12,7 @@
           </div>
           <div class="mr-5">{{$ticket}} Tickets  </div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/ticket')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -28,7 +28,7 @@
           </div>
           <div class="mr-5">{{$device}} Dispositivos</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/device')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -44,7 +44,7 @@
           </div>
           <div class="mr-5">{{$houseHolder}} Encargados</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/householder')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -60,7 +60,7 @@
           </div>
           <div class="mr-5">{{$user}} Usuarios</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/users')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -76,7 +76,7 @@
           </div>
           <div class="mr-5">{{$antivirus}} Antivirus</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/antivirus')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right fa-2x"></i>
@@ -92,7 +92,7 @@
           </div>
           <div class="mr-5">{{$location}} Ubicaciones</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/location')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -108,7 +108,7 @@
           </div>
           <div class="mr-5">{{$modelDevice}} Modelos</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/modeldevice')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -124,7 +124,7 @@
           </div>
           <div class="mr-5">{{$operativeSystem}} Sistemas Operativos</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/os')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -140,7 +140,7 @@
           </div>
           <div class="mr-5">{{$service}} Servicios</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/service')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -156,7 +156,7 @@
           </div>
           <div class="mr-5">{{$type}} Hardware</div>
         </div>
-        <a class="card-footer text-white clearfix small z-1" href="#">
+        <a class="card-footer text-white clearfix small z-1" href="{{url('/type')}}">
           <span class="float-left">Ver detalles</span>
           <span class="float-right">
             <i class="fas fa-angle-right"></i>
@@ -251,10 +251,10 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["Soporte", "Red", "Problemas", "Otros"],
+    labels: ["Baja", "Media", "Alta"],
     datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      data: [{{$baja}}, {{$media}}, {{$alta}}],
+      backgroundColor: ['#27bb0f','#ffc107','#dc3545'],
     }],
   },
 });

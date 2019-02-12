@@ -50,7 +50,7 @@ class DevicesController extends Controller
               <div class="dropdown-divider my-1"></div>
               <a href="'.route('device.edit', $device->id).'" role="button" class="dropdown-item"><i class="fas fa-pencil-alt fa-fw fa-lg text-primary"></i> Editar</a>
               <div class="dropdown-divider"></div>
-              <form action="'.action('DevicesController@destroy', ['id' => $device->id]).'" method="POST">
+              <form id="del'.$device->id.'" action="'.action('DevicesController@destroy', ['id' => $device->id]).'" method="POST">
                 <input name="_token" type="hidden" value="'.csrf_token().'">
                 <input name="_method" type="hidden" value="DELETE">
                 <button type="button" class="dropdown-item dtbutton"><i class="fas fa-times-circle fa-fw fa-lg text-danger"></i> Eliminar</button>
@@ -88,11 +88,11 @@ class DevicesController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'=>'required',
-        'noSerie'=>'required',
-        'noInventario'=>'required',
-        'dirIp'=>'required',
-        'dirMac'=>'required',
-        'observaciones'=>'required',
+        'noSerie'=>'required|max:25',
+        'noInventario'=>'required|max:10',
+        'dirIp'=>'required|max:16',
+        'dirMac'=>'required|max:18',
+        'observaciones'=>'required|max:70',
         'operative_system_id'=>'required',
         'type_id'=>'required',
         'antivirus_id'=>'required',
@@ -157,11 +157,11 @@ class DevicesController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token'=>'required',
-        'noSerie'=>'required',
-        'noInventario'=>'required',
-        'dirIp'=>'required',
-        'dirMac'=>'required',
-        'observaciones'=>'required',
+        'noSerie'=>'required|max:25',
+        'noInventario'=>'required|max:10',
+        'dirIp'=>'required|max:16',
+        'dirMac'=>'required|max:18',
+        'observaciones'=>'required|max:70',
         'operative_system_id'=>'required',
         'type_id'=>'required',
         'antivirus_id'=>'required',
@@ -186,8 +186,15 @@ class DevicesController extends Controller
      * @param  \App\Devices  $devices
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+      $request->user()->authorizeRoles(['admin']);
+      $device = Device::find($id);
+      try {
+        $device->delete();
+      } catch (\Exception $e) {
+        return redirect('/device')->with('errors', 'Ha ocurrido un problema');
+      }
+      return redirect('/device')->with('message', ' Dispositivo Eliminado');
     }
 }

@@ -67,7 +67,7 @@ class TypeController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'nombre'  => 'required',
+        'nombre'  => 'required|max:25',
       ]);
 
       if ($validator->fails())
@@ -117,7 +117,7 @@ class TypeController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'nombre'  => 'required',
+        'nombre'  => 'required|max:25',
       ]);
 
       if ($validator->fails())
@@ -136,8 +136,9 @@ class TypeController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+      $request->user()->authorizeRoles(['admin']);
       $type = Type::find($id);
       try {
         $type->delete();

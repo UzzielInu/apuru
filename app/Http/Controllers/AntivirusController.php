@@ -67,8 +67,8 @@ class AntivirusController extends Controller
         $validator = Validator::make($request->all(),
         [
           '_token' => 'required',
-          'nombre'  => 'required',
-          'version'   => 'required',
+          'nombre'  => 'required|max:25',
+          'version'   => 'required|max:50',
         ]);
 
         if ($validator->fails())
@@ -117,8 +117,8 @@ class AntivirusController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'nombre'  => 'required',
-        'version'   => 'required',
+        'nombre'  => 'required|max:25',
+        'version'   => 'requiredmax:50',
       ]);
 
       if ($validator->fails())
@@ -137,8 +137,9 @@ class AntivirusController extends Controller
      * @param  \App\Antivirus  $antivirus
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
+      $request->user()->authorizeRoles(['admin']);
       $antivirus = Antivirus::find($id);
       try {
         $antivirus->delete();
