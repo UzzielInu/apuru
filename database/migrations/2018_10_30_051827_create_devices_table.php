@@ -17,7 +17,7 @@ class CreateDevicesTable extends Migration
             $table->increments('id');
             $table->string('noSerie', 25);
             $table->string('noInventario', 10);
-            $table->string('dirIp', 16);
+            $table->string('dirIp', 15 );
             $table->string('dirMac', 18);
             $table->string('observaciones', 70);
             $table->unsignedInteger('operative_system_id');

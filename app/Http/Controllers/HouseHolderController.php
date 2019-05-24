@@ -72,10 +72,10 @@ class HouseHolderController extends Controller
       $validator = Validator::make($request->all(),
       [
         '_token' => 'required',
-        'nombre'  => 'required|max:25',
-        'paterno'   => 'required|max:20',
-        'materno'   => 'required|max:20',
-        'extension' => 'max:4',
+        'nombre'  => array( 'required','regex:/(([a-zA-Z0-9\sáéíóúÁÉÍÓÚ]{3,25})/u','max:25' ),
+        'paterno'   =>  array( 'required','regex:/(([a-zA-Z0-9\sáéíóúÁÉÍÓÚ]{0,20})/u','max:20' ),
+        'materno'   =>  array( 'required','regex:/(([a-zA-Z0-9\sáéíóúÁÉÍÓÚ]{0,20})/u','max:20' ),
+        'extension' =>  array( 'required','regex:/(0-9{0,4})/u','max:4' ),
       ]);
 
       if ($validator->fails())

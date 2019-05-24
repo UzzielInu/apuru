@@ -15,32 +15,32 @@
       <div class="form-group row justify-content-center my-3">
         <label for="noSerie" class="col-sm-2 col-form-label">Número de serie</label>
         <div class="col-sm-10">
-          <input type="text" id="noSerie" name="noSerie" value="" class="form-control text-center" placeholder="Ejemplo: ">
+          <input type="text" id="noSerie" name="noSerie" value="" class="form-control text-center" placeholder="Ejemplo: FE6S34 " required pattern="[a-zA-Z0-9]{3,50}" maxlength="25" autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
         <label for="noInventario" class="col-sm-2 col-form-label">Número de inventario</label>
         <div class="col-sm-10">
-          <input type="text" id="noInventario" name="noInventario" value="" class="form-control text-center" placeholder="Ejemplo: ">
+          <input type="text" id="noInventario" name="noInventario" value="" class="form-control text-center" placeholder="Ejemplo:25633 " required pattern="[0-9]{5,10}" maxlength="10" autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
         <label for="dirIp" class="col-sm-2 col-form-label">Dirección IP</label>
         <div class="col-sm-10">
-          <input type="text" id="dirIp" name="dirIp" value="" class="form-control text-center" placeholder="Ejemplo: 192.168.1.100">
+          <input type="text" id="dirIp" name="dirIp" value="" class="form-control text-center" placeholder="Ejemplo: 192.168.1.100" required pattern="^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$" maxlength="15"  autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
         <label for="dirMac" class="col-sm-2 col-form-label">Dirección MAC</label>
         <div class="col-sm-10">
-          <input type="text" id="dirMac" name="dirMac" value="" class="form-control text-center" placeholder="Ejemplo: 00:17:4F:08:5F:69">
+          <input type="text" id="dirMac" name="dirMac" value="" class="form-control text-center" placeholder="Ejemplo: 00:17:4F:08:5F:69" required pattern="^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$" maxlength="18" autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
         <label for="operative_system_id" class="col-sm-2 col-form-label">Sistema Operativo</label>
         <div class="col-sm-10  text-center">
           <select id="operative_system_id" class="form-control col-sm-12" name="operative_system_id" style="width: 100%">
-            <option value="">Sistema Operativo</option>
+            <option value="" >Sistema Operativo</option>
             @foreach ($oss as $item)
               <option value="{{$item->id}}">{{$item->nombre}} - {{$item->version}}</option>
             @endforeach
@@ -105,7 +105,7 @@
       <div class="form-group row justify-content-center my-3">
         <label for="observaciones" class="col-sm-2 col-form-label">Observaciones</label>
         <div class="col-sm-10  text-center">
-          <textarea name="observaciones" rows="5" cols="80" class="form-control"></textarea>
+          <textarea name="observaciones" rows="5" cols="80" class="form-control" required>Sin observaciones</textarea>
         </div>
       </div>
 

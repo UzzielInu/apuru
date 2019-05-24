@@ -15,25 +15,25 @@
       <div class="form-group row justify-content-center my-3">
         <label for="noSerie" class="col-sm-2 col-form-label">Número de serie</label>
         <div class="col-sm-10">
-          <input type="text" id="noSerie" name="noSerie" value="{{$device->noSerie}}" class="form-control text-center">
+          <input type="text" id="noSerie" name="noSerie" value="{{$device->noSerie}}" class="form-control text-center" placeholder="Ejemplo: FE6S34 " required pattern="[a-zA-Z0-9]{3,50}" maxlength="25" autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
         <label for="noInventario" class="col-sm-2 col-form-label">Número de inventario</label>
         <div class="col-sm-10">
-          <input type="text" id="noInventario" name="noInventario" value="{{$device->noInventario}}" class="form-control text-center">
+          <input type="text" id="noInventario" name="noInventario" value="{{$device->noInventario}}" class="form-control text-center" required pattern="[0-9]{5,10}" maxlength="10" autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
         <label for="dirIp" class="col-sm-2 col-form-label">Dirección IP</label>
         <div class="col-sm-10">
-          <input type="text" id="dirIp" name="dirIp" value="{{$device->dirIp}}" class="form-control text-center">
+          <input type="text" id="dirIp" name="dirIp" value="{{$device->dirIp}}" class="form-control text-center" required pattern="^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$" maxlength="18"  autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
         <label for="dirMac" class="col-sm-2 col-form-label">Dirección MAC</label>
         <div class="col-sm-10">
-          <input type="text" id="dirMac" name="dirMac" value="{{$device->dirMac}}" class="form-control text-center" value="Ejemplo: 00:17:4F:08:5F:69">
+          <input type="text" id="dirMac" name="dirMac" value="{{$device->dirMac}}" class="form-control text-center" value="Ejemplo: 00:17:4F:08:5F:69" required pattern="^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$" maxlength="18" autofocus autocomplete="off">
         </div>
       </div>
       <div class="form-group row justify-content-center my-3">
